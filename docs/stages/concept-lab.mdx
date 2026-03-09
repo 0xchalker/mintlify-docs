@@ -1,6 +1,6 @@
 ---
 title: "Step 2: Concept Lab"
-description: "Mục đích, input, output và logic vận hành của Step 2."
+description: "Chọn đúng một narrative winner và khóa nó thành concept coin đủ rõ để ra content và launch."
 ---
 
 # Step 2: Concept Lab
@@ -12,7 +12,7 @@ description: "Mục đích, input, output và logic vận hành của Step 2."
 | Mục tiêu | Chốt đúng một narrative và khóa thành concept coin |
 | Decision owner | AI Concept CEO |
 | Input chính | `step1-handoff.md`, `batch-audit.md`, shortlist narratives |
-| Output khóa | `selection.md`, `concept.md`, `concept-audit.md` |
+| Output khóa | `selection.md`, `concept.md`, `concept-audit.md`, `step2-handoff.md` |
 
 ## Sơ đồ luồng
 
@@ -27,49 +27,73 @@ flowchart LR
 
 ## Step này tồn tại để làm gì
 
-Step 2 tồn tại để chọn đúng một narrative và khóa nó thành một concept coin đủ rõ để content team và launch team cùng bám vào.
+Step 2 là nơi MEME LABS quyết định sẽ đánh câu chuyện nào.
 
-Nếu Step 2 yếu, hệ quả thường là:
+Step 1 chỉ tạo ra nguyên liệu. Step 2 mới là nơi khóa bản sắc của coin. Nếu stage này yếu, các lỗi thường gặp sẽ là:
 
 - concept không đủ khác biệt
 - ticker mờ nhạt
 - mascot không bám narrative
-- content không có trục rõ ràng
-- launch angle bị generic
+- content về sau bị generic
+- launch angle quá giống các coin khác
 
 ## Input của Step 2
 
-Step 2 đọc lại package mà Step 1 đã bàn giao:
+Step 2 bắt đầu khi package của Step 1 đã đủ rõ:
 
 - `step1-handoff.md`
 - `batch-audit.md`
 - `review-scope.md`
 - `_index.md`
-- shortlisted narratives
+- các narrative đã được shortlist
 - evidence review
 - asset review
 
+Mục tiêu của input này là để AI Concept CEO không phải chọn story bằng cảm giác.
+
 ## AI sẽ làm gì
 
-## 1. Đọc lại toàn bộ package của Step 1
+### 1. Đọc lại toàn bộ shortlist
 
-AI cần hiểu rõ narrative nào có lực thật, narrative nào chỉ có bề mặt, narrative nào không nên đi tiếp.
+AI phải nhìn lại toàn bộ các candidate còn sống trong batch và hiểu:
 
-## 2. AI Concept CEO chốt một winner duy nhất
+- narrative nào đang mạnh nhất
+- narrative nào chỉ đáng giữ ở watchlist
+- narrative nào có bằng chứng mạnh nhưng asset yếu
+- narrative nào có asset vui nhưng thesis yếu
+
+Đây là bước làm sạch ngữ cảnh trước khi chốt winner.
+
+### 2. So sánh các candidate trên cùng một mặt bằng
+
+AI phải đặt các candidate lên cùng một bảng so sánh:
+
+- độ bám narrative
+- độ mới
+- độ vui
+- độ dễ hiểu với cộng đồng
+- độ dễ biến thành mascot
+- độ dễ viết hook, thread, reply
+- độ hợp để launch ngay
+
+Mục tiêu là biến quyết định từ cảm tính sang có logic.
+
+### 3. AI Concept CEO chốt một winner duy nhất
 
 Đây là gate quan trọng nhất của Step 2.
 
-AI Concept CEO phải đưa ra quyết định rõ:
+AI phải trả lời rõ:
 
 - narrative nào thắng
-- tại sao nó thắng
-- tại sao các narrative còn lại bị loại
+- vì sao nó thắng
+- vì sao các narrative còn lại thua
+- rủi ro lớn nhất của decision này là gì
 
-Mục đích là ép cả hệ thống tập trung vào một story duy nhất.
+Không được để kết luận kiểu “cả hai đều ổn”.
 
-## 3. Khóa concept coin
+### 4. Dựng concept coin
 
-AI biến winner thành một concept hoàn chỉnh:
+Sau khi winner đã được chốt, AI mới dựng concept:
 
 - thesis
 - ticker
@@ -77,52 +101,103 @@ AI biến winner thành một concept hoàn chỉnh:
 - mascot
 - tone
 - launch angle
-- cult seed
 
-## 4. Audit concept
+Concept phải khiến người đọc hiểu ngay:
 
-AI tự review lại concept để trả lời:
+- coin này là ai
+- nó sống nhờ story nào
+- nó nói giọng gì
+- nó định kéo cộng đồng bằng điểm vui nào
 
-- concept có bám narrative không
-- có đủ độc đáo không
-- có đủ fun không
-- có đủ rõ để xây content system không
-- có đủ launchable không
+### 5. Tự audit lại concept
 
-## 5. Viết handoff sang Step 3
+Sau khi dựng xong, AI phải tự review:
 
-Step 3 không nên phải đọc lại Step 1.
+- concept có còn bám narrative không
+- có bị generic không
+- có đủ vui không
+- ticker có đủ nhớ không
+- mascot có đủ mạnh để ra visual không
+- concept có đủ rõ để dựng content system không
 
-Handoff của Step 2 cần đủ rõ để team content biết:
+Nếu câu trả lời còn mơ hồ, Step 2 chưa được coi là hoàn tất.
+
+### 6. Viết handoff cho Step 3
+
+Step 3 không nên phải quay lại đọc toàn bộ Step 1.
+
+Handoff của Step 2 phải đủ rõ để content team biết:
 
 - đang kể câu chuyện nào
 - tone của coin là gì
 - mascot là ai
-- điểm nào là điểm fun nhất để đẩy content
+- điểm fun nhất nằm ở đâu
+- trục content đầu tiên nên xoáy vào cái gì
 
 ## Output của Step 2
 
-Một concept package đầy đủ phải có:
+Toàn bộ output được lưu trong:
+
+```text
+.concepts/[TICKER]/
+```
+
+Với các file:
 
 - `selection.md`
 - `concept.md`
 - `concept-audit.md`
 - `step2-handoff.md`
 
-## Lưu vào đâu
+## Mỗi file dùng để làm gì
 
-Tất cả output của Step 2 được lưu trong `.concepts/[TICKER]/`.
+### `selection.md`
+
+Là file quyết định.
+
+Nó dùng để trả lời:
+
+- winner là ai
+- vì sao nó thắng
+- các candidate còn lại bị loại vì lý do gì
+
+### `concept.md`
+
+Là bản mô tả concept chính thức của coin.
+
+### `concept-audit.md`
+
+Là lớp tự kiểm tra để chặn concept generic, lệch narrative, hoặc không launchable.
+
+### `step2-handoff.md`
+
+Là file bàn giao cho Step 3.
 
 ## Khi nào Step 2 được xem là xong
 
-Step 2 chỉ được xem là xong khi:
+Step 2 chỉ được xem là hoàn tất khi:
 
-- AI CEO đã chốt một winner duy nhất
-- concept package đã đủ bốn file
-- concept audit đã pass
-- handoff đã đủ rõ để sang content
+1. đã có đúng một winner
+2. concept package đã đủ bốn file
+3. concept audit không còn flag nghiêm trọng
+4. Step 3 có thể bắt đầu mà không cần hidden operator context
+
+## Dấu hiệu Step 2 đang làm chưa tốt
+
+- ticker nghe như coin cũ
+- lore dài nhưng không có hình ảnh trung tâm
+- mascot không đủ mạnh để ra poster hoặc short
+- tone không rõ là degen, cult, ironic hay pseudo-serious
+- launch angle mơ hồ
+- Step 3 đọc package xong vẫn phải hỏi “vậy coin này thực ra là gì”
+
+## Bàn giao cho bước sau
+
+Step 2 không tạo content.
+
+Nó tạo ra bản sắc đủ rõ để Step 3 biến thành content system.
 
 ## Đọc thêm
 
-- [Concept packages](/docs/outputs/concept-packages)
+- [Concept Packages](/docs/outputs/concept-packages)
 - [Step 3: Content Creator](/docs/stages/content-creator)

@@ -1,6 +1,6 @@
 ---
 title: "Step 5: Archive"
-description: "Lưu lại campaign để audit, học lại và tái sử dụng."
+description: "Đóng gói toàn bộ campaign thành hồ sơ có thể audit, đọc lại, và reuse."
 ---
 
 # Step 5: Archive
@@ -31,21 +31,73 @@ flowchart LR
 
 Archive không phải phần phụ. Nó là nơi biến một campaign thành dữ liệu học lại cho campaign sau.
 
-Nếu không archive, MEME LABS sẽ luôn phải bắt đầu lại gần như từ đầu.
+Nếu không archive, MEME LABS sẽ luôn phải bắt đầu lại gần như từ đầu vì:
+
+- bài học nằm rải rác
+- link quan trọng bị mất
+- không ai còn nhớ campaign đã diễn ra ra sao
 
 ## Input của Step 5
 
 Step 5 nhận:
 
 - concept package
-- content pack
-- visuals
-- launch links
-- monitoring notes
+- content package
+- launch package
+- nếu có, cả package từ AI MEME FACTORY
 
-## Output package chuẩn
+## AI sẽ làm gì
 
-Step 5 nên để lại phần closeout cuối cùng ngay trong:
+### 1. Gom lại toàn bộ artifact
+
+AI phải chắc rằng campaign không còn nằm rải rác ở nhiều nơi.
+
+Nó cần gom:
+
+- concept
+- content
+- launch fact
+- post-launch note
+- public loop note nếu có
+
+### 2. Viết campaign summary
+
+File này phải giúp một người chưa theo campaign từ đầu vẫn hiểu:
+
+- coin là gì
+- story chính là gì
+- campaign đã chạy ra sao
+
+Đây là lớp tóm tắt điều hành.
+
+### 3. Viết postmortem
+
+AI phải nhìn thẳng vào:
+
+- cái gì chạy tốt
+- cái gì không chạy tốt
+- chỗ nào do narrative sai
+- chỗ nào do concept yếu
+- chỗ nào do content hoặc launch chưa đủ lực
+
+### 4. Viết reuse notes
+
+AI phải tách ra:
+
+- cái gì có thể reuse
+- kiểu hook nào đáng giữ
+- visual language nào còn dùng lại được
+- lesson nào nên biến thành rule cho lần sau
+
+### 5. Viết closeout
+
+Closeout là điểm chốt của archive.
+
+Nó nói campaign đã được đóng hồ sơ và có thể đưa sang System Learning nếu cần.
+
+## Output của Step 5
+
+Toàn bộ output được lưu trong:
 
 ```text
 .campaigns/[TICKER]/
@@ -58,61 +110,45 @@ Với các file:
 - `reuse-notes.md`
 - `step5-closeout.md`
 
-## Decision owner
+## Mỗi file dùng để làm gì
 
-Step 5 cần một owner rõ ràng cho archive recap.
+### `campaign-summary.md`
 
-Vai trò đó là `AI Archive Commander`, với trách nhiệm:
+Là file cho người xem nhanh.
 
-- khóa campaign summary
-- chọn outcome chính của campaign
-- chốt lesson quan trọng nhất
-- đóng campaign bằng một closeout rõ ràng
+### `postmortem.md`
 
-## AI sẽ làm gì
+Là file để mổ xẻ campaign.
 
-## 1. Tạo campaign package
+### `reuse-notes.md`
 
-Mỗi ticker phải có một folder riêng trong `.campaigns/[TICKER]/`.
+Là file tách những gì còn giá trị cho campaign sau.
 
-## 2. Gom lại toàn bộ artifacts quan trọng
+### `step5-closeout.md`
 
-Archive phải đủ để một người khác mở vào và hiểu:
-
-- coin này là gì
-- nó sinh ra từ narrative nào
-- content đã dùng là gì
-- launch xảy ra như thế nào
-- kết quả sau launch ra sao
-
-## 3. Ghi lại bài học
-
-Mỗi campaign package nên chốt ba ý:
-
-- cái gì work
-- cái gì fail
-- cái gì nên tái sử dụng
-
-## Output của Step 5
-
-Một campaign package đầy đủ thường gồm:
-
-- concept package
-- copy pack
-- visual references
-- launch metadata
-- monitoring notes
-- campaign summary
-- postmortem
-- reuse notes
-- closeout note
+Là file đóng hồ sơ stage archive.
 
 ## Khi nào Step 5 được xem là xong
 
-Step 5 xong khi:
+Step 5 chỉ được xem là hoàn tất khi:
 
-- campaign summary đã có
-- postmortem đã có
-- reuse notes đã có
-- closeout note đã có
-- một người chưa tham gia campaign vẫn có thể đọc package và hiểu được toàn bộ câu chuyện của chiến dịch đó
+1. campaign package đã đủ các file tối thiểu
+2. campaign summary đọc vào hiểu ngay campaign là gì
+3. postmortem nói rõ cái gì hiệu quả và không hiệu quả
+4. reuse notes cho thấy campaign này để lại giá trị gì cho hệ thống
+
+## Dấu hiệu Step 5 đang làm chưa tốt
+
+- archive chỉ là nơi copy file chứ không có kết luận
+- postmortem quá chung chung
+- reuse notes không nói rõ reuse cái gì
+- người đọc sau này vẫn phải hỏi lại campaign đã diễn ra thế nào
+
+## Bàn giao cho bước sau
+
+Step 5 là nơi tổng hợp bài học trước khi Step 7 dùng các bài học đó để vá hệ thống.
+
+## Đọc thêm
+
+- [Campaign Packages](/docs/outputs/campaign-packages)
+- [Step 7: System Learning](/docs/stages/system-learning)

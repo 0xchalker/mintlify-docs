@@ -1,6 +1,6 @@
 ---
 title: "Step 7: System Learning"
-description: "Vòng học lại của MEME LABS để cải tiến workflow, skill và output quality sau các run thật."
+description: "Đưa bài học từ campaign thật quay lại workflow, skill, prompt và output contract của MEME LABS."
 ---
 
 # Step 7: System Learning
@@ -28,9 +28,15 @@ flowchart LR
 
 ## Step này tồn tại để làm gì
 
-Step 7 tồn tại để MEME LABS tự học từ những campaign đã chạy và cải thiện control plane của chính nó.
+Step 7 là stage khiến MEME LABS trưởng thành hơn theo thời gian.
 
-Đây là stage meta, không phục vụ cho một coin cụ thể. Nó phục vụ cho chất lượng dài hạn của toàn hệ thống.
+Nếu hệ thống chỉ chạy campaign mà không học lại, nó sẽ lặp lại cùng một lỗi. Stage này tồn tại để:
+
+- gom bài học từ campaign thật
+- xác định lỗi lặp lại
+- viết patch plan
+- chọn patch thắng
+- đưa patch đó quay lại control plane
 
 ## Input của Step 7
 
@@ -39,11 +45,63 @@ Step 7 thường cần:
 - campaign packages gần đây
 - failure notes lặp lại
 - các output yếu hoặc không ổn định
-- recent stage artifacts từ Step 1 đến Step 6
+- stage artifacts từ Step 1 đến Step 6
 
-## Output package chuẩn
+## AI sẽ làm gì
 
-Step 7 nên để lại một evaluation pack trong:
+### 1. Chọn scope training
+
+AI không nên học mọi thứ cùng lúc.
+
+Nó phải chọn một scope đủ hẹp, ví dụ:
+
+- Step 1 đang chọn narrative yếu
+- Step 2 đang ra concept generic
+- Step 3 đang làm visual pack không đủ mạnh
+
+### 2. Gom case thật
+
+AI lấy các case đại diện cho scope đó:
+
+- case tốt
+- case xấu
+- case trung gian
+
+Mục tiêu là có đủ vật liệu để so sánh, không học từ một campaign đơn lẻ.
+
+### 3. Mổ lỗi
+
+AI phải trả lời:
+
+- lỗi nằm ở đâu
+- lỗi có lặp lại không
+- lỗi là do prompt, workflow, skill hay output contract
+
+### 4. Viết patch plan
+
+Patch plan không chỉ nói “cần cải thiện”.
+
+Nó phải nói rõ:
+
+- sửa file nào
+- sửa logic nào
+- thay đổi đó kỳ vọng cải thiện điều gì
+
+### 5. Chốt winner
+
+Sau khi review, AI phải chốt:
+
+- patch nào đáng giữ
+- patch nào nên bỏ
+- có rule mới nào cần cập nhật vào hệ thống
+
+### 6. Viết closeout
+
+Đây là điểm khép lại vòng học và mở đường cho vòng vận hành sau.
+
+## Output của Step 7
+
+Toàn bộ output được lưu trong:
 
 ```text
 .agents/evals/YYYYMMDD-HHmm-scope/
@@ -57,50 +115,50 @@ Với các file:
 - `winner.md`
 - `step7-closeout.md`
 
-## Decision owner
+## Mỗi file dùng để làm gì
 
-Step 7 cần một owner rõ ràng cho vòng học.
+### `training-brief.md`
 
-Vai trò đó là `AI Learning Commander`, với trách nhiệm:
+Xác định scope học.
 
-- khóa scope training
-- giữ cho vòng học đủ hẹp
-- chốt patch nào thực sự thắng
+### `failure-review.md`
 
-## AI sẽ làm gì
+Giải thích hệ thống đang hỏng ở đâu.
 
-## 1. Chọn scope training
+### `patch-plan.md`
 
-AI chốt đúng một vấn đề để học ở vòng này.
+Liệt kê các patch đáng thử.
 
-## 2. Gom case thật
+### `winner.md`
 
-AI lấy `3-5` case đại diện để làm baseline.
+Chốt patch nào thắng và vì sao.
 
-## 3. Mổ lỗi
+### `step7-closeout.md`
 
-AI xác định lớp lỗi thực sự nằm ở đâu.
-
-## 4. Viết patch plan
-
-AI đề xuất patch nhỏ, có kiểm soát, không vá tràn lan.
-
-## 5. Chốt winner
-
-AI quyết định patch nào thật sự đáng giữ.
+Đóng vòng học để hệ thống bước sang chu kỳ mới.
 
 ## Khi nào Step 7 được xem là xong
 
-Step 7 chỉ được xem là xong khi:
+Step 7 chỉ được xem là hoàn tất khi:
 
-- scope đã được khóa
-- case set đã đủ
-- failure review đã có
-- patch plan đã có
-- winner đã được chốt
-- closeout đã hoàn tất
+1. training scope đủ hẹp
+2. failure pattern đã được mô tả rõ
+3. patch plan đủ cụ thể để thực hiện
+4. winner đã được chốt
+5. closeout đã hoàn tất
+
+## Dấu hiệu Step 7 đang làm chưa tốt
+
+- học quá rộng, không patch nổi
+- chỉ nói bài học chung chung
+- không chỉ ra file hay logic nào cần sửa
+- có winner nhưng không giải thích tại sao thắng
+
+## Bàn giao cho vòng mới
+
+Kết quả của Step 7 phải quay lại workflow và skill, để vòng campaign sau chạy tốt hơn vòng trước.
 
 ## Đọc thêm
 
-- [Evaluation packs](/docs/outputs/evaluation-packs)
-- [Night Review](/docs/operations/night-review)
+- [Evaluation Packs](/docs/outputs/evaluation-packs)
+- [Campaign Walkthrough](/docs/campaign-walkthrough)

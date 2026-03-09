@@ -1,6 +1,6 @@
 ---
 title: "Step 3: Content Creator"
-description: "Biến concept coin thành một content system có thể sống công khai."
+description: "Biến concept coin thành content system có thể đi ra công khai mà không bị generic."
 ---
 
 # Step 3: Content Creator
@@ -30,7 +30,9 @@ flowchart LR
 
 ## Step này tồn tại để làm gì
 
-Step 3 tồn tại để biến một concept coin thành một hệ content có thể đi ra công khai mà không bị generic.
+Step 3 tồn tại để biến một concept coin thành một hệ content có thể sống công khai.
+
+Nếu Step 2 trả lời “coin này là ai”, thì Step 3 trả lời “coin này sẽ xuất hiện trước cộng đồng như thế nào”.
 
 Đây là bước biến idea thành:
 
@@ -38,7 +40,7 @@ Step 3 tồn tại để biến một concept coin thành một hệ content có
 - identity có thể nhận ra
 - mascot có thể lặp lại
 - visual có thể mở rộng
-- short-form có thể nuôi attention
+- short-form asset có thể nuôi attention
 
 ## Input của Step 3
 
@@ -49,20 +51,79 @@ Step 3 nhận từ Step 2:
 - `concept-audit.md`
 - `step2-handoff.md`
 
-## Decision owner
+Mục tiêu là để content team không phải đoán lại narrative hay tone.
 
-Step 3 cần một owner rõ ràng để không bị trôi giữa các lane.
+## AI sẽ làm gì
 
-Vai trò đó là `AI Content CEO`, với trách nhiệm:
+### 1. Khóa content direction
 
-- khóa content direction
-- chọn public voice
-- chọn lane chính của campaign
-- giữ cho copy, channel và visual nói cùng một câu chuyện
+AI Content CEO phải chốt:
 
-## Output package chuẩn
+- content phải làm người xem cảm thấy gì
+- hook trung tâm là gì
+- coin này nên được nhớ bằng hình ảnh nào
+- lane nào là lane chính của campaign
 
-Step 3 nên để lại một content package trong:
+Đây là bước giữ cho copy, channel và visual cùng kể một câu chuyện.
+
+### 2. Dựng copy lane
+
+AI viết ra:
+
+- hero tweet
+- thread nếu cần
+- reply pack
+- copypasta
+
+Copy không chỉ cần đúng narrative, mà còn phải có lực CT.
+
+### 3. Dựng channel lane
+
+AI quyết định cách coin tồn tại trên X:
+
+- bio hoặc description
+- pinned direction
+- community angle
+- rule giọng điệu
+- loại post nào được ưu tiên
+
+Đây là nơi biến concept thành social presence.
+
+### 4. Dựng visual lane
+
+AI xác định:
+
+- key visual
+- poster direction
+- reaction image direction
+- mascot board
+- short board hoặc video board nếu campaign cần media mạnh
+
+Mục tiêu là để mọi asset về sau đều cùng một thế giới.
+
+### 5. Audit lại content system
+
+Trước khi sang launch, AI phải tự review:
+
+- có bám narrative không
+- có đủ fun không
+- có đủ độc đáo không
+- có bị generic meme marketing không
+- có đủ launch-ready không
+
+Nếu còn lệch, Step 3 phải sửa ngay trong stage này.
+
+### 6. Viết handoff cho Step 4
+
+Launch Ops phải đọc package là biết:
+
+- post nào dùng để mở màn
+- visual nào đi cùng launch
+- tone nào cần giữ trong giờ đầu
+
+## Output của Step 3
+
+Toàn bộ output được lưu trong:
 
 ```text
 .campaigns/[TICKER]/content-system/
@@ -77,84 +138,58 @@ Với các file:
 - `content-audit.md`
 - `step3-handoff.md`
 
-## Bốn lane chính
+## Mỗi file dùng để làm gì
 
-## 1. Copy lane
+### `content-direction.md`
 
-Mục tiêu là viết ra:
+Khóa định hướng cho toàn bộ stage.
 
-- hero tweet
-- thread
-- reply pack
-- copypasta
+### `copy-pack.md`
 
-Copy không chỉ cần đúng narrative, mà còn phải có lực CT.
+Là kho chữ để launch và nuôi coin.
 
-## 2. Channel lane
+### `channel-pack.md`
 
-Mục tiêu là tạo ra identity công khai trên X:
+Là bản mô tả surface của coin trên X và community.
 
-- bio
-- description
-- profile direction
-- cover direction
-- community description
-- pinned message direction
+### `visual-pack.md`
 
-## 3. Character lane
+Là định hướng visual để poster, still, clip, mascot board không bị rời rạc.
 
-Mục tiêu là biến concept thành một nhân vật hoặc mascot đủ mạnh để scale.
+### `content-audit.md`
 
-Đây là lane quan trọng nếu coin cần sống bằng hình tượng chứ không chỉ bằng text.
+Là gate chặn content generic, lệch narrative, hoặc chưa đủ lực để đi ra công khai.
 
-## 4. Media lane
+### `step3-handoff.md`
 
-Mục tiêu là tạo ra:
-
-- poster
-- thumbnail
-- still images
-- short clips
-- short board
-
-## Audit gate
-
-Trước khi được xem là launch-ready, toàn bộ content package phải qua một audit trả lời bốn câu hỏi:
-
-- có bám narrative không
-- có đủ fun không
-- có đủ độc đáo không
-- có đủ mạnh để đi ra công khai không
-
-## Recheck bắt buộc
-
-Sau khi build content system, AI phải tự review lại:
-
-- có bám narrative không
-- có fun không
-- có đủ độc đáo không
-- có bị generic meme marketing không
-- có đang đẩy đúng phần mạnh nhất của concept không
-
-## Output của Step 3
-
-Một stage 3 đủ tốt thường phải để lại:
-
-- content direction
-- copy pack
-- channel pack
-- visual pack
-- content audit
-- handoff sang launch
+Là bản bàn giao cho Launch Ops.
 
 ## Khi nào Step 3 được xem là xong
 
-Step 3 chỉ được xem là xong khi:
+Step 3 chỉ được xem là hoàn tất khi:
 
-- content direction đã khóa
-- content package đã đủ sáu file
-- tone đã nhất quán
-- visual direction đã rõ
-- identity trên X đã có thể dựng
-- phần fun của narrative đã được kéo ra ngoài mặt
-- audit đã pass
+1. content system đã đủ sáu file
+2. tone đã nhất quán
+3. visual direction đã rõ
+4. identity trên X có thể dựng được
+5. `content-audit.md` đã pass
+6. Step 4 có thể launch mà không cần tự vá identity
+
+## Dấu hiệu Step 3 đang làm chưa tốt
+
+- copy vui nhưng không giống concept
+- visual đẹp nhưng generic
+- channel pack không nói rõ account sẽ cư xử ra sao
+- không có post mở màn đủ mạnh
+- mascot board có nhưng không tạo được cảm giác muốn follow
+
+## Bàn giao cho bước sau
+
+Step 3 không launch.
+
+Nó chuẩn bị mọi thứ để Step 4 có thể launch nhanh, đúng giọng, và có đủ asset để phản ứng ngay sau launch.
+
+## Đọc thêm
+
+- [Campaign Packages](/docs/outputs/campaign-packages)
+- [Step 4: Launch Ops](/docs/stages/launch-ops)

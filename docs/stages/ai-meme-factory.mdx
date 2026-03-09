@@ -1,6 +1,6 @@
 ---
 title: "Step 6: AI MEME FACTORY"
-description: "Loop công khai trên X để vận hành burst, nurture và social closeout quanh một coin đang sống."
+description: "Vận hành loop công khai trên X để cho cộng đồng thấy AI đang tự chạy thật và tận dụng attention còn sống của coin."
 ---
 
 # Step 6: AI MEME FACTORY
@@ -29,14 +29,15 @@ flowchart LR
 
 ## Step này tồn tại để làm gì
 
-Step 6 tồn tại để cho cộng đồng thấy MEME LABS đang tự vận hành thật trên bề mặt công khai.
+Step 6 là public loop của MEME LABS.
 
-Đây không phải phần thay thế main campaign lane. Đây là một loop song song sau launch để:
+Nó tồn tại để:
 
-- duy trì continuity
-- nuôi attention nếu coin còn sống
-- dừng sớm nếu coin đã chết
-- ghi lại social lesson của campaign
+- cho cộng đồng thấy hệ thống đang tự vận hành thật
+- tận dụng attention còn sống của coin
+- tạo thêm dữ liệu social cho archive và system learning
+
+Đây không phải phần thay thế main campaign lane. Nó là một loop song song sau launch.
 
 ## Input của Step 6
 
@@ -46,9 +47,65 @@ Step 6 thường cần:
 - content package
 - public rules của AI MEME FACTORY
 
-## Output package chuẩn
+## AI sẽ làm gì
 
-Step 6 nên để lại một loop package trong:
+### 1. Chốt loop plan
+
+AI phải quyết định:
+
+- coin này có nên vào public loop hay không
+- trong 1 giờ đầu sẽ bắn loại content nào
+- nếu coin sống thì 24 giờ tiếp theo sẽ nuôi kiểu gì
+- điều kiện nào khiến phải dừng ngay
+
+### 2. Chạy burst 1 giờ đầu
+
+Đây là giai đoạn chứng minh coin có còn đà hay không.
+
+AI phải ghi lại:
+
+- đã post những gì
+- phản ứng nào xuất hiện
+- cộng đồng có bám vào story không
+
+### 3. Audit sau burst
+
+Sau 1 giờ, AI không được tiếp tục theo quán tính.
+
+Nó phải review:
+
+- attention có thật không
+- community có phản ứng không
+- content có còn tạo lực kéo không
+- coin có đáng nuôi thêm không
+
+### 4. Nếu đạt thì chạy nurture
+
+Chỉ những coin vượt qua gate sau burst mới được nuôi tiếp.
+
+Giai đoạn này tập trung vào:
+
+- giữ câu chuyện sống
+- làm community thấy hệ thống đang tự vận hành
+- kéo dài lifespan của campaign
+
+### 5. Nếu không đạt thì dừng
+
+Dừng cũng là một quyết định đúng.
+
+AI phải ghi lý do dừng rõ ràng, không kéo một coin chết chỉ để làm đẹp chỉ số hoạt động.
+
+### 6. Viết closeout của loop
+
+Cuối Step 6 phải có kết luận:
+
+- loop này thành công hay không
+- vì sao
+- để lại bài học gì cho archive và system learning
+
+## Output của Step 6
+
+Toàn bộ output được lưu trong:
 
 ```text
 .campaigns/[TICKER]/ai-meme-factory/
@@ -62,50 +119,50 @@ Với các file:
 - `loop-decision.md`
 - `step6-closeout.md`
 
-## Decision owner
+## Mỗi file dùng để làm gì
 
-Step 6 cần một owner rõ ràng cho public loop.
+### `loop-plan.md`
 
-Vai trò đó là `AI Meme Factory Commander`, với trách nhiệm:
+Khóa kế hoạch vận hành public loop.
 
-- khóa loop plan
-- quyết định có nurture tiếp hay không
-- chốt khi nào loop nên dừng
+### `burst-log.md`
 
-## AI sẽ làm gì
+Ghi lại 1 giờ đầu.
 
-## 1. Chốt loop plan
+### `nurture-log.md`
 
-AI quyết định coin này có nên vào public loop hay không, burst sẽ đẩy những gì, và điều kiện nào dùng để tiếp tục hoặc dừng.
+Ghi lại giai đoạn nuôi tiếp nếu coin sống.
 
-## 2. Chạy 1 giờ burst
+### `loop-decision.md`
 
-AI vận hành 1 giờ đầu với hero tweet, thread, visual posts, replies khi cần.
+Là file chốt decision nuôi tiếp hay dừng.
 
-## 3. Đánh giá lại
+### `step6-closeout.md`
 
-AI nhìn lại attention, độ sống của story, và phản ứng của cộng đồng để quyết định có nurture tiếp hay không.
-
-## 4. Nuôi tiếp nếu còn lý do thật
-
-Nếu coin còn sống, AI có thể tiếp tục nuôi trong khung 24 giờ.
-
-## 5. Chốt closeout
-
-AI ghi lại loop decision và bài học social cuối cùng.
+Là file đóng hồ sơ cho public loop này.
 
 ## Khi nào Step 6 được xem là xong
 
-Step 6 chỉ được xem là xong khi:
+Step 6 chỉ được xem là hoàn tất khi:
 
-- loop plan đã được khóa
-- burst đã có log
-- nurture đã có log hoặc có lý do không chạy
-- loop decision đã rõ
-- closeout đã hoàn tất
+1. loop plan đã được khóa
+2. burst đã có log
+3. nurture đã có log hoặc có lý do không chạy
+4. loop decision đã rõ
+5. closeout đã hoàn tất
+
+## Dấu hiệu Step 6 đang làm chưa tốt
+
+- tiếp tục post dù coin đã chết
+- không ghi được vì sao coin còn đáng nuôi
+- log quá ít, không phản ánh public loop thật
+- loop chỉ là spam content chứ không phải orchestration có chủ đích
+
+## Bàn giao cho bước sau
+
+Step 6 tạo ra bài học social và attention. Những bài học này phải quay lại Archive và System Learning.
 
 ## Đọc thêm
 
 - [AI MEME FACTORY Logic](/docs/automation/ai-meme-factory)
-- [Campaign packages](/docs/outputs/campaign-packages)
-- [Night Review](/docs/operations/night-review)
+- [Step 5: Archive](/docs/stages/archive)

@@ -1,6 +1,6 @@
 ---
 title: "Step 4: Launch Ops"
-description: "Launch token thật và theo dõi phản ứng thật sau launch."
+description: "Launch token thật, ghi lại fact thật, và đưa ra quyết định sớm bằng phản ứng thật của thị trường."
 ---
 
 # Step 4: Launch Ops
@@ -27,22 +27,94 @@ flowchart LR
 
 ## Step này tồn tại để làm gì
 
-Step 4 tồn tại để biến toàn bộ phần narrative, concept và content thành một launch thật trên PumpFun.
+Step 4 là ranh giới giữa planning và execution.
 
-Đây không phải bước để tạo ảo giác demand. Đây là bước để ghi lại phản ứng thật của thị trường.
+Tất cả các stage trước đó đều chuẩn bị cho khoảnh khắc này:
+
+- story đã chọn
+- concept đã khóa
+- content đã sẵn
+
+Step 4 tồn tại để biến chúng thành một launch có thật, có dấu vết, có log, và có quyết định rõ sau launch.
 
 ## Input của Step 4
 
 Step 4 thường cần:
 
 - concept package đã khóa
-- content đã được approve
+- content package đã approve
 - launch angle rõ ràng
 - readiness cho PumpFun
 
-## Output package chuẩn
+## AI sẽ làm gì
 
-Step 4 nên để lại một launch package trong:
+### 1. Chốt launch readiness
+
+AI phải trả lời:
+
+- concept đã rõ chưa
+- post mở màn đã sẵn chưa
+- visual mở màn đã sẵn chưa
+- metadata launch đã rõ chưa
+- có gì còn thiếu trước khi bấm launch không
+
+Nếu launch chưa sẵn sàng, Step 4 không được tự lấp chỗ trống bằng suy đoán.
+
+### 2. Launch token
+
+Đây là bước execution thật.
+
+AI cần ghi lại:
+
+- launch diễn ra lúc nào
+- mint nào được tạo ra
+- link nào được dùng để theo dõi
+
+Mục tiêu của stage này không phải là làm đẹp câu chuyện, mà là ghi fact.
+
+### 3. Ghi launch metadata
+
+Sau launch, AI phải để lại một record đủ rõ:
+
+- token gì đã được launch
+- lúc nào
+- ở đâu
+- link nào liên quan
+
+Để campaign không rơi vào trạng thái “đã launch rồi nhưng không biết mở hồ sơ nào để xem”.
+
+### 4. Theo dõi early reaction
+
+AI phải nhìn phản ứng sớm:
+
+- community có phản hồi không
+- content mở màn có kéo attention không
+- launch có tạo được năng lượng ban đầu không
+- có tín hiệu cho thấy nên nuôi tiếp không
+
+Đây là lớp đọc sự thật, không phải lớp tự trấn an.
+
+### 5. Ra launch decision
+
+AI phải chốt một trong hai:
+
+- dừng ở đây và chuyển archive
+- hoặc mở đường sang AI MEME FACTORY để nuôi tiếp
+
+Decision phải được giải thích, không phải chỉ gắn nhãn.
+
+### 6. Viết handoff cho bước sau
+
+Nếu dừng, handoff sang Archive phải đủ rõ.
+
+Nếu nuôi tiếp, handoff phải cho thấy:
+
+- vì sao coin còn đáng nuôi
+- content loop nên bắt đầu bằng trục nào
+
+## Output của Step 4
+
+Toàn bộ output được lưu trong:
 
 ```text
 .campaigns/[TICKER]/launch/
@@ -56,75 +128,61 @@ Với các file:
 - `launch-decision.md`
 - `step4-handoff.md`
 
-## Decision owner
+## Mỗi file dùng để làm gì
 
-Step 4 cần một owner rõ ràng cho launch decision.
+### `launch-readiness.md`
 
-Vai trò đó là `AI Launch Commander`, với trách nhiệm:
+Là file chốt trước launch: có được phép launch chưa.
 
-- khóa launch readiness
-- quyết định có được `go` hay không
-- đọc monitoring notes
-- chốt `stop` hoặc `nurture`
+### `launch-metadata.md`
 
-## AI sẽ làm gì
+Là nơi lưu fact của launch.
 
-## 1. Launch token
+### `monitoring-notes.md`
 
-Launch token bằng lane PumpFun chuẩn của hệ thống.
+Là nơi ghi lại phản ứng thật sau launch.
 
-## 2. Ghi lại launch metadata
+### `launch-decision.md`
 
-Ngay sau launch, hệ thống phải lưu:
+Là file quyết định có đi tiếp sang Step 6 hay không.
 
-- mint
-- thời gian launch
-- link liên quan
-- notes quan trọng của launch
+### `step4-handoff.md`
 
-## 3. Theo dõi early reaction
-
-AI cần quan sát:
-
-- phản ứng ban đầu
-- tốc độ attention
-- trạng thái sau launch
-- có nên nuôi tiếp content loop hay không
-
-## 4. Ra quyết định rõ ràng
-
-Quyết định cuối của Step 4 phải là một trong hai:
-
-- dừng
-- nuôi tiếp
-
-Không nên để tình trạng mơ hồ sau launch.
-
-## Những thứ không nằm trong plan chuẩn
-
-Hệ thống không chuẩn hóa các hành vi sau:
-
-- self-snipe
-- self-sell để tạo kịch bản giả
-- bundle buy bằng ví nội bộ để fake traction
-- giữ coin chết chỉ để giả vờ nó còn sống
-
-## Output của Step 4
-
-Step 4 phải để lại:
-
-- launch readiness
-- launch metadata
-- monitoring notes
-- decision note
-- handoff sang archive
+Là file bàn giao sang Archive hoặc AI MEME FACTORY.
 
 ## Khi nào Step 4 được xem là xong
 
-Step 4 chỉ được xem là xong khi:
+Step 4 chỉ được xem là hoàn tất khi:
 
-- readiness đã được chốt
-- token đã launch thật
-- metadata đã được lưu
-- decision sau launch đã được ghi lại
-- stage 5 có đủ dữ liệu để archive
+1. launch package đã tồn tại
+2. launch fact đã được ghi lại
+3. early reaction đã được đọc và viết ra
+4. decision sau launch đã được chốt rõ
+
+## Không thuộc plan chuẩn
+
+Những thứ sau không phải logic mặc định của workflow:
+
+- fake traction
+- bundle buy để diễn
+- self-snipe để làm đẹp launch
+- tự tạo volume giả để ép sang loop tiếp theo
+
+## Dấu hiệu Step 4 đang làm chưa tốt
+
+- launch rồi nhưng metadata quá ít
+- không ghi được vì sao coin được nuôi tiếp hoặc bị dừng
+- monitoring note chỉ là cảm nhận mơ hồ
+- archive đọc lại không hiểu launch thực tế đã diễn ra như thế nào
+
+## Bàn giao cho bước sau
+
+Step 4 là điểm rẽ:
+
+- coin chết hoặc launch yếu thì sang Archive
+- coin còn sống và còn attention thì sang AI MEME FACTORY
+
+## Đọc thêm
+
+- [Campaign Packages](/docs/outputs/campaign-packages)
+- [Step 6: AI MEME FACTORY](/docs/stages/ai-meme-factory)
