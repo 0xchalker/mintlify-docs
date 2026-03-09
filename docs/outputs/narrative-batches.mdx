@@ -1,0 +1,79 @@
+---
+title: "Narrative Batches"
+description: "Output contract chuẩn của Step 1 trong .narrative/."
+---
+
+# Narrative Batches
+
+## Mục đích của batch
+
+Narrative batch là đơn vị output chuẩn của Step 1.
+
+Nó tồn tại để Step 2 có thể review và chọn winner mà không phải đi tìm dữ liệu ở nhiều chỗ.
+
+## Batch được lưu ở đâu
+
+Batch của Step 1 được lưu trong `.narrative/`.
+
+Hai lane phổ biến:
+
+```text
+.narrative/global/trend-YYYYMMDD-HHmm/raw-01/
+.narrative/ai/ai-YYYYMMDD-HHmm/raw-01/
+```
+
+## Những file tối thiểu phải có
+
+### Cấp batch
+
+- `_index.md`
+- `review-scope.md`
+- `batch-audit.md`
+- `step1-handoff.md`
+
+### Cấp narrative
+
+- `NN_slug.md`
+- `NN_slug.evidence.md`
+- `NN_slug.evidence-review.md`
+- `NN_slug.asset-review.md`
+
+### Cấp asset
+
+- `NN_slug.assets/manifest.json`
+
+## Ý nghĩa của từng file
+
+### `_index.md`
+
+Là file nhìn nhanh cả batch.
+
+### `review-scope.md`
+
+Là file do AI CEO chốt để xác định narrative nào được review sâu.
+
+### `*.evidence-review.md`
+
+Trả lời narrative có lực thật hay không.
+
+### `*.asset-review.md`
+
+Trả lời asset có bám narrative, có fun, có độc đáo và có usable cho content hay không.
+
+### `batch-audit.md`
+
+Tổng kết chất lượng cả batch.
+
+### `step1-handoff.md`
+
+Nén batch thành một gói bàn giao cho Step 2.
+
+## Một batch tốt trông như thế nào
+
+Batch tốt là batch mà:
+
+- shortlist rõ
+- không review lan man
+- evidence đủ mạnh
+- asset có điểm fun thật
+- handoff đủ rõ để Step 2 chọn winner nhanh

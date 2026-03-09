@@ -1,0 +1,74 @@
+---
+title: "Runtime Commands"
+description: "Những lệnh runtime quan trọng nhất để vận hành MEME LABS."
+---
+
+# Runtime Commands
+
+Trang này chỉ liệt kê những lệnh thực sự quan trọng trong runtime hiện tại.
+
+## Discovery
+
+### Chuẩn bị Grok
+
+```powershell
+npm run grok:prepare
+```
+
+### Chạy full trend discovery
+
+```powershell
+npm run trend:run
+```
+
+### Chạy lại riêng phần review orchestration trên một parsed batch đã có
+
+```powershell
+npm run trend:review -- --input <parsed-batch-dir>
+```
+
+## Media
+
+### Chuẩn bị Freepik
+
+```powershell
+npm run freepik:prepare
+```
+
+### Sinh ảnh qua Freepik
+
+```powershell
+npm run freepik:image
+```
+
+### Mở blueprint cho Spaces
+
+```powershell
+npm run freepik:spaces:blueprint
+```
+
+## X lane
+
+### Chuẩn bị X browser session
+
+```powershell
+npm run x:prepare
+```
+
+### Post qua browser
+
+```powershell
+npm run x:post
+```
+
+## Docs
+
+### Chạy Mintlify docs local
+
+```powershell
+npm run docs:dev
+```
+
+## Ghi chú
+
+Các lệnh này là runtime surface. Chúng không thay thế cho workflow decisions ở các stage docs.

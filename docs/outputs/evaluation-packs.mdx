@@ -1,0 +1,60 @@
+---
+title: "Evaluation Packs"
+description: "Output contract chuẩn của Step 7 trong .agents/evals/."
+---
+
+# Evaluation Packs
+
+## Mục đích của evaluation pack
+
+Evaluation pack là đơn vị output chuẩn của Step 7.
+
+Nó tồn tại để việc học lại hệ thống có artifact rõ ràng, thay vì chỉ là vài ghi chú rời rạc.
+
+## Evaluation pack được lưu ở đâu
+
+Mỗi vòng học được lưu trong:
+
+```text
+.agents/evals/YYYYMMDD-HHmm-scope/
+```
+
+## Những file tối thiểu phải có
+
+- `training-brief.md`
+- `failure-review.md`
+- `patch-plan.md`
+- `winner.md`
+- `step7-closeout.md`
+
+## Ý nghĩa của từng file
+
+### `training-brief.md`
+
+Chốt scope đang học và case set dùng để so sánh.
+
+### `failure-review.md`
+
+Chỉ ra lỗi thật sự đang nằm ở lớp nào.
+
+### `patch-plan.md`
+
+Ghi patch plan nhỏ và có kiểm soát.
+
+### `winner.md`
+
+Chốt patch nào thật sự nên giữ.
+
+### `step7-closeout.md`
+
+Đóng vòng học và chỉ ra vòng tiếp theo nên nhìn vào đâu.
+
+## Một evaluation pack tốt trông như thế nào
+
+Evaluation pack tốt là pack mà:
+
+- scope đủ hẹp
+- case đủ thật
+- failure review đủ rõ
+- patch plan không sửa tràn lan
+- winner thật sự làm output tốt hơn

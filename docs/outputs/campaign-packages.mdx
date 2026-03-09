@@ -1,0 +1,54 @@
+---
+title: "Campaign Packages"
+description: "Output contract cuối cùng của một campaign trong .campaigns/."
+---
+
+# Campaign Packages
+
+## Mục đích của campaign package
+
+Campaign package là output cuối cùng của toàn pipeline.
+
+Nó tồn tại để:
+
+- audit campaign
+- so sánh campaign với nhau
+- học lại cái gì work và cái gì fail
+- tái sử dụng structure cho campaign sau
+
+## Campaign package được lưu ở đâu
+
+Mỗi campaign được lưu trong:
+
+```text
+.campaigns/[TICKER]/
+```
+
+## Nên có những gì trong package
+
+- content-system package từ Step 3
+- launch package từ Step 4
+- concept package
+- campaign-summary.md
+- postmortem.md
+- reuse-notes.md
+- step5-closeout.md
+
+## Câu hỏi mà campaign package phải trả lời được
+
+- coin này sinh ra từ narrative nào
+- concept nào đã được chọn
+- content nào đã được dùng
+- launch diễn ra ra sao
+- sau launch hệ thống đã làm gì
+- campaign này đáng học lại điều gì
+- campaign này đã được đóng lại ở trạng thái nào
+
+## Một campaign package tốt trông như thế nào
+
+Một người không tham gia campaign vẫn có thể đọc package và hiểu:
+
+- câu chuyện
+- execution
+- kết quả
+- bài học

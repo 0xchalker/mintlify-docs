@@ -1,0 +1,85 @@
+---
+title: "Step 7: System Learning"
+description: "Vòng học lại của MEME LABS để cải tiến workflow, skill và output quality sau các run thật."
+---
+
+# Step 7: System Learning
+
+## Step này tồn tại để làm gì
+
+Step 7 tồn tại để MEME LABS tự học từ những campaign đã chạy và cải thiện control plane của chính nó.
+
+Đây là stage meta, không phục vụ cho một coin cụ thể. Nó phục vụ cho chất lượng dài hạn của toàn hệ thống.
+
+## Input của Step 7
+
+Step 7 thường cần:
+
+- campaign packages gần đây
+- failure notes lặp lại
+- các output yếu hoặc không ổn định
+- recent stage artifacts từ Step 1 đến Step 6
+
+## Output package chuẩn
+
+Step 7 nên để lại một evaluation pack trong:
+
+```text
+.agents/evals/YYYYMMDD-HHmm-scope/
+```
+
+Với các file:
+
+- `training-brief.md`
+- `failure-review.md`
+- `patch-plan.md`
+- `winner.md`
+- `step7-closeout.md`
+
+## Decision owner
+
+Step 7 cần một owner rõ ràng cho vòng học.
+
+Vai trò đó là `AI Learning Commander`, với trách nhiệm:
+
+- khóa scope training
+- giữ cho vòng học đủ hẹp
+- chốt patch nào thực sự thắng
+
+## AI sẽ làm gì
+
+## 1. Chọn scope training
+
+AI chốt đúng một vấn đề để học ở vòng này.
+
+## 2. Gom case thật
+
+AI lấy `3-5` case đại diện để làm baseline.
+
+## 3. Mổ lỗi
+
+AI xác định lớp lỗi thực sự nằm ở đâu.
+
+## 4. Viết patch plan
+
+AI đề xuất patch nhỏ, có kiểm soát, không vá tràn lan.
+
+## 5. Chốt winner
+
+AI quyết định patch nào thật sự đáng giữ.
+
+## Khi nào Step 7 được xem là xong
+
+Step 7 chỉ được xem là xong khi:
+
+- scope đã được khóa
+- case set đã đủ
+- failure review đã có
+- patch plan đã có
+- winner đã được chốt
+- closeout đã hoàn tất
+
+## Đọc thêm
+
+- [Evaluation packs](/docs/outputs/evaluation-packs)
+- [Night Review](/docs/operations/night-review)

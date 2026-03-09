@@ -1,0 +1,63 @@
+---
+title: "Workspace Map"
+description: "Bản đồ folder chính của MEME LABS."
+---
+
+# Workspace Map
+
+## Root folders
+
+### `/.agents/`
+
+Control plane của hệ thống.
+
+### `/.narrative/`
+
+Nơi lưu các narrative batch đã được quét và phân tích.
+
+### `/.concepts/`
+
+Nơi lưu concept package của mỗi ticker đã được khóa.
+
+### `/.campaigns/`
+
+Nơi lưu kết quả cuối cùng của một campaign.
+
+### `/prompts/`
+
+Prompt sources cho các lane runtime.
+
+### `/scripts/`
+
+Scripts chạy browser automation và các helper chính của hệ thống.
+
+## Cách hiểu folder taxonomy
+
+### Folder có dấu chấm ở root
+
+Thường là namespace bền vững của pipeline hoặc control plane.
+
+### Folder không có dấu chấm ở root
+
+Thường là runtime source hoặc công cụ phụ trợ.
+
+## Cách đọc repo nếu mới vào
+
+1. Đọc [Giới thiệu](/docs/introduction)
+2. Đọc [Kiến trúc](/docs/architecture)
+3. Đọc [Tổng quan pipeline](/docs/stages/overview)
+4. Sau đó mới nhìn vào `.narrative`, `.concepts`, `.campaigns`
+
+## Folder nào quan trọng nhất để review hằng ngày
+
+### Nếu review discovery
+
+Nhìn vào `.narrative/`
+
+### Nếu review quality của concept
+
+Nhìn vào `.concepts/`
+
+### Nếu review chiến dịch đã launch
+
+Nhìn vào `.campaigns/`

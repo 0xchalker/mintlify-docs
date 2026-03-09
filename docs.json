@@ -1,68 +1,58 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "MEME LABS",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#16a34a",
+    "light": "#bbf7d0",
+    "dark": "#15803d"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "MEME LABS",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Bắt đầu",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "docs/introduction",
+              "docs/quickstart",
+              "docs/campaign-walkthrough",
+              "docs/architecture",
+              "docs/workspace-map"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Vận hành theo giai đoạn",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "docs/stages/overview",
+              "docs/stages/trend-discovery",
+              "docs/stages/concept-lab",
+              "docs/stages/content-creator",
+              "docs/stages/launch-ops",
+              "docs/stages/archive",
+              "docs/stages/ai-meme-factory",
+              "docs/stages/system-learning"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Output Contracts",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "docs/outputs/narrative-batches",
+              "docs/outputs/concept-packages",
+              "docs/outputs/campaign-packages",
+              "docs/outputs/evaluation-packs"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Automation và Governance",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "docs/automation/step-1-orchestration",
+              "docs/automation/ai-meme-factory",
+              "docs/operations/night-review",
+              "docs/operations/runtime-commands"
             ]
           }
         ]
@@ -71,14 +61,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "GitHub",
+          "href": "https://github.com/0xchalker/mintlify-docs",
+          "icon": "github"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Live Docs",
+          "href": "https://memelabs-a332cd9d.mintlify.app",
+          "icon": "book-open-cover"
         }
       ]
     }
@@ -90,33 +80,30 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "GitHub",
+        "href": "https://github.com/0xchalker/mintlify-docs"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "View Docs",
+      "href": "https://memelabs-a332cd9d.mintlify.app"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/0xchalker/mintlify-docs"
     }
   }
 }

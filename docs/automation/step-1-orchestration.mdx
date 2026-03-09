@@ -1,0 +1,86 @@
+---
+title: "Step 1 Orchestration"
+description: "Cách Step 1 được điều phối bằng các agent lane và các gate review."
+---
+
+# Step 1 Orchestration
+
+## Mục đích của orchestration
+
+Orchestration của Step 1 tồn tại để biến một raw scan thành một batch có thể review được, thay vì chỉ dừng ở việc thu thập dữ liệu.
+
+## Những vai trò chính
+
+## 1. Session keeper
+
+Đảm bảo lane discovery có thể làm việc ổn định trước khi đi sâu.
+
+## 2. Trend scout
+
+Đi tìm raw signals và gom thành report ban đầu.
+
+## 3. Narrative normalizer
+
+Tách raw report thành từng narrative file độc lập.
+
+## 4. Discovery CEO
+
+Đây là agent quyết định của Step 1.
+
+Mục đích của nó là:
+
+- khóa scope review
+- giảm lãng phí thời gian
+- quyết định narrative nào xứng đáng được review sâu
+
+Không có agent này, Step 1 rất dễ bị review quá rộng và mơ hồ.
+
+## 5. Evidence reviewer
+
+Đánh giá độ thật và độ nóng của narrative.
+
+## 6. Asset reviewer
+
+Đánh giá asset có bám narrative, fun, độc đáo và usable hay không.
+
+## 7. Batch auditor
+
+Nhìn lại toàn batch và chốt chất lượng cuối.
+
+## 8. Handoff writer
+
+Nén cả batch thành một file đủ rõ cho Step 2.
+
+## Đoạn nào chạy song song
+
+Sau khi scope review được khóa, lane evidence review và asset review có thể chạy song song trên các narrative đã được chọn.
+
+Điều này giúp Step 1 nhanh hơn mà không bỏ qua quality gate.
+
+## Join gate ở đâu
+
+Evidence review và asset review phải hoàn tất trước khi batch audit được viết.
+
+Batch audit phải hoàn tất trước khi step1 handoff được viết.
+
+## Output contract của orchestration
+
+Orchestration chỉ được xem là thành công khi tự sinh được:
+
+- `review-scope.md`
+- `*.evidence-review.md`
+- `*.asset-review.md`
+- `batch-audit.md`
+- `step1-handoff.md`
+
+## Vì sao Discovery CEO là quan trọng nhất
+
+Vấn đề lớn nhất của discovery không phải là thiếu narrative. Vấn đề lớn nhất là có quá nhiều narrative trung bình.
+
+Discovery CEO tồn tại để nói:
+
+- cái nào đáng đào sâu
+- cái nào chỉ nên watch
+- cái nào nên loại ngay
+
+Nó là agent bảo vệ attention của toàn hệ thống.

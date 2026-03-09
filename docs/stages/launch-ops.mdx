@@ -1,0 +1,110 @@
+---
+title: "Step 4: Launch Ops"
+description: "Launch token thật và theo dõi phản ứng thật sau launch."
+---
+
+# Step 4: Launch Ops
+
+## Step này tồn tại để làm gì
+
+Step 4 tồn tại để biến toàn bộ phần narrative, concept và content thành một launch thật trên PumpFun.
+
+Đây không phải bước để tạo ảo giác demand. Đây là bước để ghi lại phản ứng thật của thị trường.
+
+## Input của Step 4
+
+Step 4 thường cần:
+
+- concept package đã khóa
+- content đã được approve
+- launch angle rõ ràng
+- readiness cho PumpFun
+
+## Output package chuẩn
+
+Step 4 nên để lại một launch package trong:
+
+```text
+.campaigns/[TICKER]/launch/
+```
+
+Với các file:
+
+- `launch-readiness.md`
+- `launch-metadata.md`
+- `monitoring-notes.md`
+- `launch-decision.md`
+- `step4-handoff.md`
+
+## Decision owner
+
+Step 4 cần một owner rõ ràng cho launch decision.
+
+Vai trò đó là `AI Launch Commander`, với trách nhiệm:
+
+- khóa launch readiness
+- quyết định có được `go` hay không
+- đọc monitoring notes
+- chốt `stop` hoặc `nurture`
+
+## AI sẽ làm gì
+
+## 1. Launch token
+
+Launch token bằng lane PumpFun chuẩn của hệ thống.
+
+## 2. Ghi lại launch metadata
+
+Ngay sau launch, hệ thống phải lưu:
+
+- mint
+- thời gian launch
+- link liên quan
+- notes quan trọng của launch
+
+## 3. Theo dõi early reaction
+
+AI cần quan sát:
+
+- phản ứng ban đầu
+- tốc độ attention
+- trạng thái sau launch
+- có nên nuôi tiếp content loop hay không
+
+## 4. Ra quyết định rõ ràng
+
+Quyết định cuối của Step 4 phải là một trong hai:
+
+- dừng
+- nuôi tiếp
+
+Không nên để tình trạng mơ hồ sau launch.
+
+## Những thứ không nằm trong plan chuẩn
+
+Hệ thống không chuẩn hóa các hành vi sau:
+
+- self-snipe
+- self-sell để tạo kịch bản giả
+- bundle buy bằng ví nội bộ để fake traction
+- giữ coin chết chỉ để giả vờ nó còn sống
+
+## Output của Step 4
+
+Step 4 phải để lại:
+
+- launch readiness
+- launch metadata
+- monitoring notes
+- decision note
+- handoff sang archive
+
+## Khi nào Step 4 được xem là xong
+
+Step 4 chỉ được xem là xong khi:
+
+- readiness đã được chốt
+- token đã launch thật
+- metadata đã được lưu
+- decision sau launch đã được ghi lại
+- stage 5 có đủ dữ liệu để archive
