@@ -104,6 +104,13 @@ Sau khi có review, AI nhìn lại cả batch để:
 - xác nhận batch có đủ tốt để review buổi tối hay chưa
 - nêu rõ batch này mạnh ở đâu, yếu ở đâu
 
+`batch-audit.md` hiện tách rõ:
+
+- top lanes worth serious attention
+- watchlist lanes
+- approved lanes with major caveats
+- weak lanes that should be dropped
+
 ## 7. Viết handoff sang Step 2
 
 Mục tiêu là để Step 2 không phải đọc lại toàn bộ batch từ đầu.
@@ -145,6 +152,24 @@ hoặc:
 .narrative/ai/ai-YYYYMMDD-HHmm/raw-01/
 ```
 
+## Empty-state hợp lệ
+
+Có những lần Step 1 chạy ra batch rỗng.
+
+Điều đó vẫn là kết quả hợp lệ nếu Grok kết luận:
+
+- thị trường đang yên
+- chưa có trigger đủ mới
+- không có narrative nào đạt ngưỡng để đi tiếp
+
+Khi đó runtime vẫn phải viết:
+
+- `review-scope.md`
+- `batch-audit.md`
+- `step1-handoff.md`
+
+và nói rõ đây là `empty-state` hoặc `rerun-state`, không phải lỗi im lặng.
+
 ## Khi nào Step 1 được xem là xong
 
 Step 1 chỉ được xem là xong khi:
@@ -162,3 +187,4 @@ Step 1 chỉ được xem là xong khi:
 - [Step 1 Orchestration](/docs/automation/step-1-orchestration)
 - [Narrative batches](/docs/outputs/narrative-batches)
 - [Night Review](/docs/operations/night-review)
+
