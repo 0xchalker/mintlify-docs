@@ -28,11 +28,41 @@ Mỗi campaign được lưu trong:
 
 - content-system package từ Step 3
 - launch package từ Step 4
+- ai-meme-factory package từ Step 6 nếu coin có vào public loop
 - concept package
 - campaign-summary.md
 - postmortem.md
 - reuse-notes.md
 - step5-closeout.md
+
+## Cấu trúc dễ review nhất
+
+```text
+.campaigns/[TICKER]/
+  content-system/
+    content-direction.md
+    copy-pack.md
+    channel-pack.md
+    visual-pack.md
+    content-audit.md
+    step3-handoff.md
+  launch/
+    launch-readiness.md
+    launch-metadata.md
+    monitoring-notes.md
+    launch-decision.md
+    step4-handoff.md
+  ai-meme-factory/
+    loop-plan.md
+    burst-log.md
+    nurture-log.md
+    loop-decision.md
+    step6-closeout.md
+  campaign-summary.md
+  postmortem.md
+  reuse-notes.md
+  step5-closeout.md
+```
 
 ## Câu hỏi mà campaign package phải trả lời được
 
@@ -41,6 +71,7 @@ Mỗi campaign được lưu trong:
 - content nào đã được dùng
 - launch diễn ra ra sao
 - sau launch hệ thống đã làm gì
+- public loop có chạy hay không và vì sao
 - campaign này đáng học lại điều gì
 - campaign này đã được đóng lại ở trạng thái nào
 

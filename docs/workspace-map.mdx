@@ -31,6 +31,15 @@ Prompt sources cho các lane runtime.
 
 Scripts chạy browser automation và các helper chính của hệ thống.
 
+### `/docs/`
+
+Nguồn trang Mintlify để review workflow và output contracts.
+
+### `/output/` (tùy runtime)
+
+Folder ephemeral cho browser profile, file tạm, và debug captures.
+Nó có thể chưa tồn tại nếu hệ thống chưa chạy runtime nào.
+
 ## Cách hiểu folder taxonomy
 
 ### Folder có dấu chấm ở root
@@ -39,7 +48,7 @@ Thường là namespace bền vững của pipeline hoặc control plane.
 
 ### Folder không có dấu chấm ở root
 
-Thường là runtime source hoặc công cụ phụ trợ.
+Thường là runtime source, docs source, hoặc công cụ phụ trợ.
 
 ## Cách đọc repo nếu mới vào
 
