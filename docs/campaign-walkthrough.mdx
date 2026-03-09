@@ -5,9 +5,9 @@ description: "Một vòng campaign hoàn chỉnh của MEME LABS từ trend scan
 
 # Campaign Walkthrough
 
-Trang này dùng để nhìn toàn bộ MEME LABS như một vòng đời hoàn chỉnh, thay vì đọc từng stage rời nhau.
+Trang này dùng để nhìn MEME LABS như một chiến dịch sống hoàn chỉnh, thay vì đọc từng stage rời nhau.
 
-## Sơ đồ một campaign hoàn chỉnh
+## Một campaign đi qua hệ thống như thế nào
 
 ```mermaid
 flowchart LR
@@ -20,87 +20,119 @@ flowchart LR
     E --> G["7. System Learning"]
 ```
 
-## Đọc nhanh theo 3 cách
+## Câu chuyện thật sự của một campaign
 
-| Nếu muốn hiểu... | Hãy nhìn vào... | Câu hỏi chính |
+### 1. Hệ thống đi tìm story đáng đánh
+
+Campaign bắt đầu không phải từ ticker, mà từ một batch narrative.
+
+Hệ thống sẽ:
+
+- quét trend
+- tách trend thành narrative
+- gom evidence
+- đọc asset
+- chốt narrative nào đáng đi tiếp
+
+Kết quả của đoạn này là một gói bàn giao đủ rõ cho người làm concept.
+
+### 2. Hệ thống chốt coin này là ai
+
+Từ narrative thắng cuộc, MEME LABS tạo ra:
+
+- thesis
+- ticker
+- lore
+- mascot
+- tone
+- launch angle
+
+Đây là nơi coin có bản sắc.
+
+### 3. Hệ thống biến concept thành attention engine
+
+Sau khi concept đã khóa, hệ thống dựng:
+
+- post mở màn
+- thread
+- reply pack
+- identity trên X
+- visual direction
+- mascot board hoặc short direction
+
+Lúc này coin không còn là idea. Nó bắt đầu có hình dạng công khai.
+
+### 4. Hệ thống launch coin thật
+
+Launch diễn ra ở đây.
+
+Nhưng quan trọng hơn việc launch là:
+
+- ghi lại fact
+- đọc phản ứng ban đầu
+- chốt xem coin có đáng nuôi tiếp hay không
+
+### 5. Nếu coin còn sống, hệ thống cho công chúng thấy AI đang tự chạy
+
+Đây là AI MEME FACTORY.
+
+Trong loop này, hệ thống:
+
+- chạy burst đầu
+- đo reaction
+- quyết định nurture hay stop
+
+Nó vừa là public proof, vừa là data engine cho các vòng học sau.
+
+### 6. Hệ thống đóng hồ sơ chiến dịch
+
+Bất kể coin thắng hay thua, campaign phải được archive.
+
+Lúc này MEME LABS viết lại:
+
+- campaign summary
+- postmortem
+- reuse notes
+
+Đây là nơi campaign trở thành kiến thức.
+
+### 7. Hệ thống học lại chính mình
+
+Cuối cùng, những gì vừa diễn ra sẽ được đưa vào một vòng learning:
+
+- xác định lỗi lặp lại
+- viết patch plan
+- chọn patch thắng
+- vá workflow hoặc skill
+
+Đây là thứ khiến campaign sau tốt hơn campaign trước.
+
+## Nhìn chiến dịch theo artifact
+
+| Giai đoạn | Artifact chính | Ý nghĩa |
 | --- | --- | --- |
-| Luồng quyết định | Step 1 -> 2 -> 3 -> 4 | Mỗi bước chốt cái gì trước khi đi tiếp |
-| Luồng artifact | `.narrative` -> `.concepts` -> `.campaigns` | Tài liệu nào được tạo ra và lưu ở đâu |
-| Luồng học lại | Archive -> System Learning | Bài học nào quay lại cải thiện hệ thống |
+| Step 1 | `.narrative/.../step1-handoff.md` | Gói trend đã sẵn sàng để chọn winner |
+| Step 2 | `.concepts/[TICKER]/concept.md` | Bản sắc chính thức của coin |
+| Step 3 | `.campaigns/[TICKER]/content-system/` | Bộ content sẵn sàng để launch |
+| Step 4 | `.campaigns/[TICKER]/launch/` | Hồ sơ launch và decision sau launch |
+| Step 5 | `.campaigns/[TICKER]/` | Hồ sơ chiến dịch đã được đóng gói |
+| Step 6 | `.campaigns/[TICKER]/ai-meme-factory/` | Hồ sơ public loop trên X |
+| Step 7 | `.agents/evals/...` | Hồ sơ học lại của hệ thống |
 
-## Step 1: Trend Discovery
+## Điều làm một campaign tốt
 
-### Mục tiêu
+Một campaign tốt không phải là campaign có nhiều file.
 
-Tạo ra một batch narrative đủ tốt để chọn winner.
+Nó là campaign mà:
 
-### Artifact chính
+- mỗi stage đều có quyết định rõ
+- mỗi quyết định đều để lại dấu vết
+- người đến sau đọc hồ sơ vẫn hiểu chuyện gì đã xảy ra
+- bài học cuối cùng quay trở lại cải thiện hệ thống
 
-- narrative batch trong `.narrative/`
+## Nếu chỉ có 10 phút để review
 
-## Step 2: Concept Lab
-
-### Mục tiêu
-
-Chọn đúng một narrative và khóa nó thành concept coin.
-
-### Artifact chính
-
-- concept package trong `.concepts/[TICKER]/`
-
-## Step 3: Content Creator
-
-### Mục tiêu
-
-Biến concept thành content system có thể đi ra công khai.
-
-### Artifact chính
-
-- content package trong `.campaigns/[TICKER]/content-system/`
-
-## Step 4: Launch Ops
-
-### Mục tiêu
-
-Launch token thật và ghi lại reaction thật.
-
-### Artifact chính
-
-- launch package trong `.campaigns/[TICKER]/launch/`
-
-## Step 5: Archive
-
-### Mục tiêu
-
-Biến campaign thành package có thể audit và học lại.
-
-### Artifact chính
-
-- campaign package trong `.campaigns/[TICKER]/`
-
-## Step 6: AI MEME FACTORY
-
-### Mục tiêu
-
-Cho cộng đồng thấy hệ thống đang tự vận hành thật trên X.
-
-### Artifact chính
-
-- loop package trong `.campaigns/[TICKER]/ai-meme-factory/`
-
-## Step 7: System Learning
-
-### Mục tiêu
-
-Đưa bài học ngược trở lại control plane của MEME LABS.
-
-### Artifact chính
-
-- evaluation pack trong `.agents/evals/YYYYMMDD-HHmm-scope/`
-
-## Cách review cả hệ thống nhanh nhất
-
-Nếu muốn review một vòng campaign hoàn chỉnh, đọc theo thứ tự:
+Hãy đọc theo thứ tự:
 
 1. [Tổng quan pipeline](/docs/stages/overview)
 2. [Narrative Batches](/docs/outputs/narrative-batches)
@@ -108,6 +140,4 @@ Nếu muốn review một vòng campaign hoàn chỉnh, đọc theo thứ tự:
 4. [Campaign Packages](/docs/outputs/campaign-packages)
 5. [Evaluation Packs](/docs/outputs/evaluation-packs)
 
-## Điều quan trọng nhất
-
-MEME LABS không mạnh vì có nhiều skill. Nó mạnh nếu mỗi bước đều để lại artifact rõ ràng, có owner rõ ràng, và có decision rõ ràng.
+Nếu có nhiều thời gian hơn, đi tiếp vào từng trang stage.

@@ -1,190 +1,134 @@
 ---
 title: "Tổng quan pipeline"
-description: "Toàn bộ pipeline của MEME LABS từ trend đến campaign archive."
+description: "Toàn bộ pipeline của MEME LABS từ trend discovery đến system learning."
 ---
 
 # Tổng quan pipeline
 
-MEME LABS hiện chạy theo 7 giai đoạn, trong đó Step 6 là loop song song và Step 7 là meta-learning stage.
+MEME LABS vận hành như một hệ điều hành cho meme campaign, không chỉ như một bộ prompt rời rạc.
 
-## Nhìn nhanh toàn hệ thống
+Điểm quan trọng nhất của pipeline này là: mỗi stage phải trả lời một câu hỏi riêng, để lại artifact riêng, và bàn giao rõ ràng sang stage tiếp theo.
 
-| Stage | Mục tiêu chính | Artifact khóa |
-| --- | --- | --- |
-| Step 1 | Tạo batch narrative đủ tốt để chọn winner | `.narrative/.../step1-handoff.md` |
-| Step 2 | Chốt một narrative và khóa thành concept coin | `.concepts/[TICKER]/concept.md` |
-| Step 3 | Biến concept thành content system có thể ra công khai | `.campaigns/[TICKER]/content-system/` |
-| Step 4 | Launch token thật và đọc phản ứng thật | `.campaigns/[TICKER]/launch/` |
-| Step 5 | Archive campaign để audit và reuse | `.campaigns/[TICKER]/` |
-| Step 6 | Nuôi loop công khai trên X nếu coin còn sống | `.campaigns/[TICKER]/ai-meme-factory/` |
-| Step 7 | Học lại để vá workflow và skill | `.agents/evals/YYYYMMDD-HHmm-scope/` |
+## Toàn cảnh 7 bước
+
+| Stage | Mục tiêu | Câu hỏi trung tâm | Artifact khóa |
+| --- | --- | --- | --- |
+| Step 1 | Tạo batch narrative | Trend nào đáng giữ lại? | `.narrative/.../step1-handoff.md` |
+| Step 2 | Khóa concept coin | Đánh story nào và đánh bằng bản sắc nào? | `.concepts/[TICKER]/concept.md` |
+| Step 3 | Dựng content system | Coin này sẽ xuất hiện ra sao trước cộng đồng? | `.campaigns/[TICKER]/content-system/` |
+| Step 4 | Launch thật | Coin đã launch ra sao và reaction đầu tiên là gì? | `.campaigns/[TICKER]/launch/` |
+| Step 5 | Archive | Campaign này để lại hồ sơ và bài học gì? | `.campaigns/[TICKER]/` |
+| Step 6 | Nuôi public loop | Coin có đáng nuôi tiếp trên X không? | `.campaigns/[TICKER]/ai-meme-factory/` |
+| Step 7 | Học lại hệ thống | Phải vá workflow hay skill nào? | `.agents/evals/YYYYMMDD-HHmm-scope/` |
 
 ## Sơ đồ vận hành
 
 ```mermaid
 flowchart LR
-    A["Step 1: Trend Discovery"] --> B["Step 2: Concept Lab"]
-    B --> C["Step 3: Content Creator"]
-    C --> D["Step 4: Launch Ops"]
-    D --> E["Step 5: Archive"]
-    D --> F["Step 6: AI MEME FACTORY"]
+    A["Step 1<br/>Trend Discovery"] --> B["Step 2<br/>Concept Lab"]
+    B --> C["Step 3<br/>Content Creator"]
+    C --> D["Step 4<br/>Launch Ops"]
+    D --> E["Step 5<br/>Archive"]
+    D --> F["Step 6<br/>AI MEME FACTORY"]
     F --> E
-    E --> G["Step 7: System Learning"]
+    E --> G["Step 7<br/>System Learning"]
     G --> A
 ```
 
-## Nhìn theo luồng artifact
+## Cách hiểu đúng từng stage
+
+### Step 1 là stage tạo nguyên liệu
+
+Ở đây hệ thống đi tìm story, bóc tách story, gom evidence, đọc asset, rồi tạo một batch đủ rõ để con người hoặc agent khác có thể chọn winner.
+
+Nếu Step 1 yếu, mọi thứ sau đó chỉ là xây nhà trên nền đất xấu.
+
+### Step 2 là stage khóa bản sắc
+
+Ở đây MEME LABS chọn đúng một narrative và biến nó thành coin concept.
+
+Đây là nơi quyết định:
+
+- coin là ai
+- cộng đồng sẽ nhớ nó bằng gì
+- nó vui ở điểm nào
+
+### Step 3 là stage tạo khả năng xuất hiện công khai
+
+Stage này biến concept thành:
+
+- lời nói
+- persona
+- visual
+- social surface
+
+Nếu Step 2 trả lời “coin này là ai”, thì Step 3 trả lời “coin này sẽ xuất hiện trước cộng đồng như thế nào”.
+
+### Step 4 là stage execution
+
+Đây là nơi launch thật diễn ra. Mọi thứ trước đó đều là chuẩn bị.
+
+Step 4 phải ghi lại fact thật và decision thật, chứ không được để campaign rơi vào trạng thái “launch rồi nhưng không có hồ sơ”.
+
+### Step 5 là stage lưu trí nhớ
+
+Một campaign chỉ thật sự có giá trị lâu dài khi nó được archive sạch.
+
+Archive tốt giúp:
+
+- audit lại chiến dịch
+- reuse lại pattern tốt
+- cung cấp vật liệu cho Step 7
+
+### Step 6 là stage public proof
+
+Không phải coin nào cũng đi vào loop này.
+
+Step 6 chỉ mở khi coin sau launch còn sống và còn đáng nuôi.
+
+Mục tiêu của stage này là:
+
+- cho cộng đồng thấy AI đang tự chạy
+- tận dụng attention còn lại
+- tạo thêm dữ liệu social cho hệ thống
+
+### Step 7 là stage trưởng thành hóa hệ thống
+
+Đây là nơi MEME LABS học từ campaign đã chạy, vá lại skill, workflow, prompt, và output contract.
+
+Nếu không có Step 7, hệ thống chỉ lặp lại chứ không tiến hóa.
+
+## Sơ đồ luồng artifact
 
 ```mermaid
 flowchart TD
     N["Narrative batch<br/>.narrative/..."] --> C["Concept package<br/>.concepts/[TICKER]/"]
     C --> S["Content system<br/>.campaigns/[TICKER]/content-system/"]
     S --> L["Launch package<br/>.campaigns/[TICKER]/launch/"]
-    L --> A["Archive package<br/>.campaigns/[TICKER]/"]
+    L --> A["Campaign archive<br/>.campaigns/[TICKER]/"]
     L --> M["AI MEME FACTORY loop<br/>.campaigns/[TICKER]/ai-meme-factory/"]
     M --> A
     A --> E["Evaluation pack<br/>.agents/evals/..."]
 ```
 
-## Stage 1. Trend Discovery
+## Rule vận hành quan trọng
 
-### Mục đích
+1. Mỗi thời điểm chỉ nên có một narrative chính đi trọn pipeline.
+2. Không sang stage tiếp theo nếu stage trước chưa để lại artifact đủ rõ.
+3. Không dùng hidden operator context để vá chỗ thiếu của docs.
+4. Không dùng fake traction để thay cho tín hiệu thị trường thật.
+5. Campaign đã chạy thì phải được archive.
+6. Bài học hệ thống phải quay về Step 7, không được nằm rơi rớt trong note rời.
 
-Tạo ra một batch narrative mới đủ rõ để hệ thống có nguyên liệu chọn winner.
+## Nên đọc theo thứ tự nào
 
-### Input
+Nếu mới vào hệ thống:
 
-- tín hiệu thị trường
-- raw trend scan
-- evidence ban đầu
-- asset pack ban đầu
-
-### Output
-
-- narrative batch trong `.narrative/`
-- review scope
-- evidence review
-- asset review
-- batch audit
-- handoff sang Step 2
-
-## Stage 2. Concept Lab
-
-### Mục đích
-
-Chọn đúng một narrative và khóa nó thành concept coin.
-
-### Input
-
-- step1 handoff
-- batch audit
-- shortlisted narratives
-- evidence review
-- asset review
-
-### Output
-
-- concept package trong `.concepts/[TICKER]/`
-
-## Stage 3. Content Creator
-
-### Mục đích
-
-Biến concept thành một content system có thể sống công khai.
-
-### Input
-
-- concept package
-- mascot direction
-- tone và cult thesis
-
-### Output
-
-- hero post
-- thread
-- reply pack
-- identity pack cho X
-- visual assets
-- short-form assets khi cần
-
-## Stage 4. Launch Ops
-
-### Mục đích
-
-Launch token thật và đọc phản ứng thật sau launch.
-
-### Input
-
-- concept package
-- approved content
-- launch readiness
-
-### Output
-
-- launch metadata
-- monitoring notes
-- quyết định dừng hay nuôi tiếp
-
-## Stage 5. Archive
-
-### Mục đích
-
-Lưu lại toàn bộ chiến dịch để audit, học lại và reuse.
-
-### Input
-
-- concept
-- content
-- media
-- launch logs
-- monitoring notes
-
-### Output
-
-- campaign package trong `.campaigns/[TICKER]/`
-
-## Stage 6. AI MEME FACTORY
-
-### Mục đích
-
-Vận hành loop công khai trên X để cho cộng đồng thấy AI đang tự chạy thật.
-
-### Input
-
-- launch package
-- content package
-- public rules của AI MEME FACTORY
-
-### Output
-
-- loop package trong `.campaigns/[TICKER]/ai-meme-factory/`
-
-## Stage 7. System Learning
-
-### Mục đích
-
-Đưa bài học từ các campaign đã chạy ngược trở lại control plane của MEME LABS.
-
-### Input
-
-- recent campaign artifacts
-- failure patterns lặp lại
-- output yếu hoặc không ổn định
-
-### Output
-
-- evaluation pack trong `.agents/evals/YYYYMMDD-HHmm-scope/`
-
-## Operating rule quan trọng nhất
-
-Chỉ nên có một narrative đi trọn pipeline tại một thời điểm.
-
-Nếu discovery chưa xong, không sang concept.
-
-Nếu concept chưa khóa, không sang content.
-
-Nếu content chưa đạt, không sang launch.
-
-Nếu launch chưa xong, không bỏ qua archive.
-
-Nếu chưa chốt được bài học hệ thống, không nên gọi pipeline là đã trưởng thành hơn.
+1. [Campaign Walkthrough](/docs/campaign-walkthrough)
+2. [Trend Discovery](/docs/stages/trend-discovery)
+3. [Concept Lab](/docs/stages/concept-lab)
+4. [Content Creator](/docs/stages/content-creator)
+5. [Launch Ops](/docs/stages/launch-ops)
+6. [Archive](/docs/stages/archive)
+7. [AI MEME FACTORY](/docs/stages/ai-meme-factory)
+8. [System Learning](/docs/stages/system-learning)
