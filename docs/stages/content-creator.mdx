@@ -5,6 +5,29 @@ description: "Biến concept coin thành một content system có thể sống c
 
 # Step 3: Content Creator
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Biến concept thành content system có thể ra công khai |
+| Decision owner | AI Content CEO |
+| Input chính | `selection.md`, `concept.md`, `concept-audit.md`, `step2-handoff.md` |
+| Output khóa | `copy-pack.md`, `channel-pack.md`, `visual-pack.md`, `content-audit.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Concept package"] --> B["Khóa content direction"]
+    B --> C["Copy lane"]
+    B --> D["Channel lane"]
+    B --> E["Visual lane"]
+    C --> F["Content audit"]
+    D --> F
+    E --> F
+    F --> G["Step 3 handoff"]
+```
+
 ## Step này tồn tại để làm gì
 
 Step 3 tồn tại để biến một concept coin thành một hệ content có thể đi ra công khai mà không bị generic.

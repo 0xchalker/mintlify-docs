@@ -5,6 +5,26 @@ description: "Launch token thật và theo dõi phản ứng thật sau launch."
 
 # Step 4: Launch Ops
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Launch token thật và đọc phản ứng thật sau launch |
+| Decision owner | AI Launch Commander |
+| Input chính | Concept package, content đã approve, launch readiness |
+| Output khóa | `launch-readiness.md`, `launch-metadata.md`, `launch-decision.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Concept + content"] --> B["Readiness gate"]
+    B --> C["Launch thật trên PumpFun"]
+    C --> D["Early monitoring"]
+    D --> E["Quyết định stop hoặc nurture"]
+    E --> F["Step 4 handoff"]
+```
+
 ## Step này tồn tại để làm gì
 
 Step 4 tồn tại để biến toàn bộ phần narrative, concept và content thành một launch thật trên PumpFun.

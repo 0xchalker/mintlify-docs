@@ -5,6 +5,27 @@ description: "Vòng học lại của MEME LABS để cải tiến workflow, ski
 
 # Step 7: System Learning
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Học lại từ campaign thật để vá workflow và skill |
+| Decision owner | Learning Commander |
+| Input chính | Campaign packages gần đây, failure notes, weak outputs |
+| Output khóa | `training-brief.md`, `patch-plan.md`, `winner.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Recent campaign packages"] --> B["Chọn learning scope"]
+    B --> C["Failure review"]
+    C --> D["Patch plan"]
+    D --> E["Replay và so sánh"]
+    E --> F["Chốt patch thắng"]
+    F --> G["Cập nhật rule và closeout"]
+```
+
 ## Step này tồn tại để làm gì
 
 Step 7 tồn tại để MEME LABS tự học từ những campaign đã chạy và cải thiện control plane của chính nó.

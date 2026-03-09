@@ -5,6 +5,26 @@ description: "Mục đích, input, output và logic vận hành của Step 2."
 
 # Step 2: Concept Lab
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Chốt đúng một narrative và khóa thành concept coin |
+| Decision owner | AI Concept CEO |
+| Input chính | `step1-handoff.md`, `batch-audit.md`, shortlist narratives |
+| Output khóa | `selection.md`, `concept.md`, `concept-audit.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Step 1 package"] --> B["So sánh shortlist"]
+    B --> C["Concept CEO chốt winner"]
+    C --> D["Khóa thesis, ticker, lore, mascot, tone"]
+    D --> E["Audit concept"]
+    E --> F["Step 2 handoff"]
+```
+
 ## Step này tồn tại để làm gì
 
 Step 2 tồn tại để chọn đúng một narrative và khóa nó thành một concept coin đủ rõ để content team và launch team cùng bám vào.

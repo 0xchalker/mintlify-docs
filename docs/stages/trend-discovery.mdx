@@ -5,6 +5,28 @@ description: "Mục đích, input, output và logic vận hành của Step 1."
 
 # Step 1: Trend Discovery
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Tạo ra một narrative batch đủ tốt để Step 2 chọn winner |
+| Decision owner | AI Discovery CEO |
+| Input chính | Raw trend scan, evidence ban đầu, asset ban đầu |
+| Output khóa | `review-scope.md`, `batch-audit.md`, `step1-handoff.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Raw trend scan"] --> B["Parse thành narrative files"]
+    B --> C["Discovery CEO khóa scope"]
+    C --> D["Evidence review"]
+    C --> E["Asset review"]
+    D --> F["Batch audit"]
+    E --> F
+    F --> G["Step 1 handoff"]
+```
+
 ## Step này tồn tại để làm gì
 
 Step 1 tồn tại để tạo ra một narrative batch đủ tốt cho Step 2.

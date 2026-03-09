@@ -5,6 +5,28 @@ description: "Loop công khai trên X để vận hành burst, nurture và socia
 
 # Step 6: AI MEME FACTORY
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Chạy loop công khai trên X sau launch |
+| Decision owner | AI Meme Factory Commander |
+| Input chính | Launch package, content package, public rules |
+| Output khóa | `loop-plan.md`, `burst-log.md`, `loop-decision.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Launch + content package"] --> B["Chốt loop plan"]
+    B --> C["Burst 1 giờ"]
+    C --> D["Audit sau burst"]
+    D --> E["Stop"]
+    D --> F["Nurture 24 giờ"]
+    E --> G["Loop closeout"]
+    F --> G
+```
+
 ## Step này tồn tại để làm gì
 
 Step 6 tồn tại để cho cộng đồng thấy MEME LABS đang tự vận hành thật trên bề mặt công khai.

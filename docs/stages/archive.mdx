@@ -5,6 +5,28 @@ description: "Lưu lại campaign để audit, học lại và tái sử dụng.
 
 # Step 5: Archive
 
+## Nhìn nhanh
+
+| Thành phần | Nội dung |
+| --- | --- |
+| Mục tiêu | Khóa campaign thành package có thể audit và reuse |
+| Decision owner | AI Archive Commander |
+| Input chính | Concept, content, visuals, launch logs, monitoring notes |
+| Output khóa | `campaign-summary.md`, `postmortem.md`, `reuse-notes.md` |
+
+## Sơ đồ luồng
+
+```mermaid
+flowchart LR
+    A["Campaign artifacts"] --> B["Gom và kiểm kê package"]
+    B --> C["Campaign summary"]
+    B --> D["Postmortem"]
+    B --> E["Reuse notes"]
+    C --> F["Archive closeout"]
+    D --> F
+    E --> F
+```
+
 ## Step này tồn tại để làm gì
 
 Archive không phải phần phụ. Nó là nơi biến một campaign thành dữ liệu học lại cho campaign sau.

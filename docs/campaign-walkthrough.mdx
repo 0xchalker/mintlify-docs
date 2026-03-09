@@ -7,17 +7,26 @@ description: "Một vòng campaign hoàn chỉnh của MEME LABS từ trend scan
 
 Trang này dùng để nhìn toàn bộ MEME LABS như một vòng đời hoàn chỉnh, thay vì đọc từng stage rời nhau.
 
-## Toàn bộ vòng đời
+## Sơ đồ một campaign hoàn chỉnh
 
-```text
-Step 1: Trend Discovery
--> Step 2: Concept Lab
--> Step 3: Content Creator
--> Step 4: Launch Ops
--> Step 5: Archive
-=> Step 6: AI MEME FACTORY (parallel after launch)
-=> Step 7: System Learning
+```mermaid
+flowchart LR
+    A["1. Trend Discovery"] --> B["2. Concept Lab"]
+    B --> C["3. Content Creator"]
+    C --> D["4. Launch Ops"]
+    D --> E["5. Archive"]
+    D --> F["6. AI MEME FACTORY"]
+    F --> E
+    E --> G["7. System Learning"]
 ```
+
+## Đọc nhanh theo 3 cách
+
+| Nếu muốn hiểu... | Hãy nhìn vào... | Câu hỏi chính |
+| --- | --- | --- |
+| Luồng quyết định | Step 1 -> 2 -> 3 -> 4 | Mỗi bước chốt cái gì trước khi đi tiếp |
+| Luồng artifact | `.narrative` -> `.concepts` -> `.campaigns` | Tài liệu nào được tạo ra và lưu ở đâu |
+| Luồng học lại | Archive -> System Learning | Bài học nào quay lại cải thiện hệ thống |
 
 ## Step 1: Trend Discovery
 
