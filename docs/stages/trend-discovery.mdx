@@ -12,7 +12,7 @@ description: "Mục đích, input, output và logic vận hành của Step 1."
 | Mục tiêu | Tạo ra một narrative batch đủ tốt để Step 2 chọn winner |
 | Decision owner | AI Discovery CEO |
 | Input chính | Raw trend scan, evidence ban đầu, asset ban đầu |
-| Output khóa | `review-scope.md`, `batch-audit.md`, `step1-handoff.md` |
+| Output khóa | `review-scope.md`, `batch-audit.md`, `trend-final.md` |
 
 ## Sơ đồ luồng
 
@@ -24,7 +24,7 @@ flowchart LR
     C --> E["Asset review"]
     D --> F["Batch audit"]
     E --> F
-    F --> G["Step 1 handoff"]
+    F --> G["Trend Final"]
 ```
 
 ## Step này tồn tại để làm gì
@@ -54,11 +54,13 @@ Step 1 bắt đầu từ các tín hiệu thô:
 
 AI nhìn vào bề mặt attention hiện tại để gom ra một raw report.
 
-Mục tiêu của đoạn này không phải là kết luận winner, mà là tạo đủ vật liệu ban đầu.
+Mục tiêu của đoạn này không phải là kết luận winner, mà là tạo đủ vật liệu ban
+đầu.
 
 ## 2. Parse ra từng narrative riêng
 
-AI tách raw report thành các narrative files độc lập để có thể review từng story riêng.
+AI tách raw report thành các narrative files độc lập để có thể review từng
+story riêng.
 
 Mỗi narrative sau bước này cần đủ rõ để có thể chấm tiếp.
 
@@ -111,11 +113,11 @@ Sau khi có review, AI nhìn lại cả batch để:
 - approved lanes with major caveats
 - weak lanes that should be dropped
 
-## 7. Viết handoff sang Step 2
+## 7. Viết Trend Final cho Step 2
 
 Mục tiêu là để Step 2 không phải đọc lại toàn bộ batch từ đầu.
 
-Handoff phải đủ rõ để cho biết:
+`trend-final.md` phải đủ rõ để cho biết:
 
 - winner candidates là ai
 - tại sao candidate này đáng đi tiếp
@@ -135,7 +137,7 @@ Một batch hoàn chỉnh của Step 1 phải có:
 - `*.assets/`
 - `*.asset-review.md`
 - `batch-audit.md`
-- `step1-handoff.md`
+- `trend-final.md`
 
 ## Lưu vào đâu
 
@@ -167,7 +169,7 @@ Khi đó runtime vẫn phải viết:
 
 - `review-scope.md`
 - `batch-audit.md`
-- `step1-handoff.md`
+- `trend-final.md`
 
 và nói rõ đây là `empty-state` hoặc `rerun-state`, không phải lỗi im lặng.
 
@@ -180,7 +182,7 @@ Step 1 chỉ được xem là xong khi:
 - narrative trọng điểm đã có evidence review
 - narrative trọng điểm đã có asset review
 - batch đã có audit
-- batch đã có handoff
+- batch đã có Trend Final
 - batch có thể được gọi là `review-ready`
 
 ## Đọc thêm
