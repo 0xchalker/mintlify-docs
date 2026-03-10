@@ -1,25 +1,25 @@
 ---
 title: "Step 1: Trend Discovery"
-description: "Mục đích, input, output và logic vận hành của Step 1."
+description: "Purpose, inputs, outputs, and runtime logic for the MEME LABS Stage 1 narrative pipeline."
 ---
 
 # Step 1: Trend Discovery
 
-## Nhìn nhanh
+## Quick view
 
-| Thành phần | Nội dung |
+| Item | Meaning |
 | --- | --- |
-| Mục tiêu | Tạo ra một narrative batch đủ tốt để Step 2 chọn winner |
-| Decision owner | AI Discovery CEO |
-| Input chính | Raw trend scan, evidence ban đầu, asset ban đầu |
-| Output khóa | `review-scope.md`, `batch-audit.md`, `trend-final.md`, `trend-package/`, `x-public-log.*` (optional) |
+| Goal | Build a narrative batch that is strong enough for Step 2 to choose a winner |
+| Decision owner | Discovery CEO |
+| Core outputs | `review-scope.md`, `batch-audit.md`, `trend-final.md`, `trend-package/` |
+| Public trust layer | optional `x-public-log.*` plus Stage 1 X posts |
 
-## Sơ đồ luồng
+## Flow
 
 ```mermaid
 flowchart LR
-    A["Raw trend scan"] --> B["Parse thành narrative files"]
-    B --> C["Discovery CEO khóa scope"]
+    A["Raw trend scan"] --> B["Parse into narrative files"]
+    B --> C["Discovery CEO freezes review scope"]
     C --> D["Evidence review"]
     C --> E["Asset review"]
     D --> F["Batch audit"]
@@ -28,195 +28,123 @@ flowchart LR
     G --> H["Trend Package"]
 ```
 
-## Step này tồn tại để làm gì
+## What this step is for
 
-Step 1 tồn tại để tạo ra một narrative batch đủ tốt cho Step 2.
+Stage 1 exists to create a clean narrative batch for the rest of MEME LABS.
 
-Nếu Step 1 yếu, toàn bộ phần sau rất dễ:
+If Stage 1 is weak:
 
-- chọn nhầm winner
-- khóa concept lệch story
-- làm content generic
-- launch một coin không có lực thật
+- Step 2 locks the wrong concept
+- Step 3 builds content on weak story logic
+- Step 4 launches something that never had real narrative force
 
-## Input của Step 1
+## What AI does in this step
 
-Step 1 bắt đầu từ các tín hiệu thô:
+### 1. Scan for raw narratives
 
-- trend đang nóng
-- raw story scan
-- evidence ban đầu như link, ảnh, video, tweet, asset
-- các rule đánh giá narrative
-- các rule đánh giá asset
+AI uses the browser-based Grok pipeline to collect current market stories.
 
-## AI sẽ làm gì
+### 2. Parse the raw reports
 
-## 1. Quét và gom trend thô
+AI normalizes the raw report into one file per narrative plus one `_index.md`.
 
-AI nhìn vào bề mặt attention hiện tại để gom ra một raw report.
+### 3. Freeze review scope
 
-Mục tiêu của đoạn này không phải là kết luận winner, mà là tạo đủ vật liệu ban
-đầu.
+Discovery CEO decides:
 
-## 2. Parse ra từng narrative riêng
+- which narratives deserve deeper review now
+- which ones stay on watchlist
+- which ones should be dropped
 
-AI tách raw report thành các narrative files độc lập để có thể review từng
-story riêng.
+### 4. Review evidence
 
-Mỗi narrative sau bước này cần đủ rõ để có thể chấm tiếp.
+Approved narratives are checked for:
 
-## 3. AI Discovery CEO khóa scope review
+- source directness
+- freshness
+- propagation
+- support clarity
+- whether the narrative is really alive
 
-Đây là decision gate đầu tiên.
+### 5. Review assets
 
-AI Discovery CEO quyết định:
+Approved narratives are also checked for:
 
-- narrative nào được review sâu
-- narrative nào chỉ để watchlist
-- narrative nào nên dừng luôn
+- narrative fit
+- meaning
+- meme potential
+- uniqueness
+- content usability
 
-Mục tiêu của gate này là bảo vệ thời gian của các agent review phía sau.
+### 6. Audit the batch
 
-## 4. Review evidence pack
+The batch auditor decides whether the batch is actually ready for Step 2.
 
-AI đọc bằng chứng của narrative được chọn để trả lời:
+### 7. Freeze Trend Final
 
-- narrative này có lực thật không
-- có đang được cộng đồng nói tới thật không
-- case study có đáng tin không
-- có đủ độ nóng để đi tiếp không
+AI writes:
 
-## 5. Review asset pack
+- `trend-final.md`
+- `trend-package/`
 
-AI không chỉ gom asset, mà còn phải hiểu asset.
+`trend-final.md` is the decision surface.
+`trend-package/` is the real handoff package for Step 2.
 
-Nó phải trả lời:
+## Outputs
 
-- asset này đang nói gì
-- ý nghĩa của asset là gì
-- asset này có bám narrative không
-- asset này có đủ vui không
-- asset này có đủ độc đáo không
-- asset này có usable cho content downstream không
+A complete Stage 1 batch may contain:
 
-## 6. Audit toàn batch
-
-Sau khi có review, AI nhìn lại cả batch để:
-
-- xếp hạng lại narratives
-- xác nhận batch có đủ tốt để review buổi tối hay chưa
-- nêu rõ batch này mạnh ở đâu, yếu ở đâu
-
-`batch-audit.md` hiện tách rõ:
-
-- top lanes worth serious attention
-- watchlist lanes
-- approved lanes with major caveats
-- weak lanes that should be dropped
-
-## 7. Viết Trend Final cho Step 2
-
-Mục tiêu là để Step 2 không phải đọc lại toàn bộ batch từ đầu.
-
-`trend-final.md` phải đủ rõ để cho biết:
-
-- winner candidates là ai
-- tại sao candidate này đáng đi tiếp
-- đâu là điểm cần cẩn trọng
-- nếu shortlist đang đồng điểm thì winner được freeze theo rule nào
-
-Sau khi freeze winner, runtime còn phải đóng gói `trend-package/` để Step 2
-đọc ngay bộ tài liệu liên quan đến narrative top và các lane dự phòng.
-
-## Output của Step 1
-
-Một batch hoàn chỉnh của Step 1 phải có:
-
-- raw report
+- raw reports
 - `_index.md`
 - narrative files
 - `review-scope.md`
 - `*.evidence.md`
-- `*.evidence-review.md`
 - `*.assets/`
+- `*.evidence-review.md`
 - `*.asset-review.md`
 - `batch-audit.md`
 - `trend-final.md`
 - `trend-package/`
-- `x-public-log.json` khi public trust layer trên X được bật
-- `x-public-log.md` khi public trust layer trên X được bật
+- optional `x-public-log.json`
+- optional `x-public-log.md`
 
-## Internal flow và public flow
+## Internal flow vs public X flow
 
-Step 1 giờ có hai lớp output:
+Stage 1 has two surfaces:
 
-- lớp nội bộ để Step 2 làm việc:
-  - `review-scope.md`
-  - `batch-audit.md`
-  - `trend-final.md`
-  - `trend-package/`
-- lớp công khai để cộng đồng thấy AI đang làm gì:
-  - root run post
-  - raw narrative reply
-  - narrative parser subthread
-  - CEO reply
-  - evidence reply
-  - asset reply
-  - batch audit reply
-  - Trend Final thread
+- internal artifact flow for Step 2
+- optional public X trust flow for external observers
 
-`trend-package/` là handoff package thật.
-`x-public-log.*` chỉ là trust surface và replay surface.
+The public X layer explains what AI is doing in real time.
+It does not replace `trend-package/`.
 
-## Lưu vào đâu
+## Public X event order
 
-Tất cả output của Step 1 được lưu trong `.narrative/`.
+When public logging is enabled, the public order is:
 
-Đơn vị làm việc chuẩn là một parsed batch folder, ví dụ:
+1. one root run post
+2. one raw narrative reply for each completed raw lane
+3. one parsed narrative summary subthread for each approved narrative
+4. one Discovery CEO reply inside each approved narrative subthread
+5. one evidence review reply
+6. one asset review reply
+7. one batch audit reply under the root run post
+8. one separate top-level Trend Final thread
 
-```text
-.narrative/global/trend-YYYYMMDD-HHmm/raw-01/
-```
+This is a trust surface, not the Step 2 handoff.
 
-hoặc:
+## Empty-state is valid
 
-```text
-.narrative/ai/ai-YYYYMMDD-HHmm/raw-01/
-```
+Stage 1 can finish with no valid winner.
 
-## Empty-state hợp lệ
+That is still a valid result when:
 
-Có những lần Step 1 chạy ra batch rỗng.
+- the market is quiet
+- no fresh trigger clears the threshold
+- the batch is too weak and should be rerun
 
-Điều đó vẫn là kết quả hợp lệ nếu Grok kết luận:
-
-- thị trường đang yên
-- chưa có trigger đủ mới
-- không có narrative nào đạt ngưỡng để đi tiếp
-
-Khi đó runtime vẫn phải viết:
-
-- `review-scope.md`
-- `batch-audit.md`
-- `trend-final.md`
-
-và nói rõ đây là `empty-state` hoặc `rerun-state`, không phải lỗi im lặng.
-
-## Khi nào Step 1 được xem là xong
-
-Step 1 chỉ được xem là xong khi:
-
-- batch đã có narrative rõ ràng
-- scope review đã được khóa
-- narrative trọng điểm đã có evidence review
-- narrative trọng điểm đã có asset review
-- batch đã có audit
-- batch đã có Trend Final
-- batch đã có Trend Package
-- batch có thể được gọi là `review-ready`
-
-## Đọc thêm
+## Related docs
 
 - [Step 1 Orchestration](/docs/automation/step-1-orchestration)
-- [Narrative batches](/docs/outputs/narrative-batches)
+- [Narrative Batches](/docs/outputs/narrative-batches)
 - [Night Review](/docs/operations/night-review)

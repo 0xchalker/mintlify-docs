@@ -1,71 +1,117 @@
 ---
 title: "Step 1 Orchestration"
-description: "Cách Step 1 được điều phối bằng các agent lane và các gate review."
+description: "How Stage 1 is coordinated across internal review gates and the public X trust layer."
 ---
 
 # Step 1 Orchestration
 
-## Mục đích của orchestration
+## Why orchestration exists
 
-Orchestration của Step 1 tồn tại để biến một raw scan thành một batch có thể
-review được, thay vì chỉ dừng ở việc thu thập dữ liệu.
+Stage 1 orchestration exists to turn a raw scan into a reviewable batch with:
 
-## Những vai trò chính
+- clear owners
+- clear join gates
+- a clean Step 2 handoff
+- a public X trust surface
 
-## 1. Session keeper
+Without orchestration, Stage 1 becomes a long browser run with no reliable
+decision boundary.
 
-Đảm bảo lane discovery có thể làm việc ổn định trước khi đi sâu.
+## Core roles
 
-## 2. Trend scout
+- `session-keeper`
+- `trend-scout`
+- `narrative-normalizer`
+- `discovery-ceo`
+- `evidence-reviewer`
+- `asset-reviewer`
+- `batch-auditor`
+- `finalizer`
+- optional `public narrator`
 
-Đi tìm raw signals và gom thành report ban đầu.
+## Internal flow
 
-## 3. Narrative normalizer
+```mermaid
+flowchart LR
+    A["Prepare Grok"] --> B["Run raw discovery"]
+    B --> C["Parse raw reports"]
+    C --> D["Freeze review scope"]
+    D --> E["Review evidence"]
+    D --> F["Review assets"]
+    E --> G["Write batch audit"]
+    F --> G
+    G --> H["Write Trend Final"]
+    H --> I["Build trend package"]
+```
 
-Tách raw report thành từng narrative file độc lập.
+## Public X flow
 
-## 4. Discovery CEO
+When public logging is enabled, Stage 1 also narrates itself in public on X.
 
-Đây là agent quyết định của Step 1.
+```mermaid
+flowchart TD
+    A["Root run post"] --> B["Raw narrative replies"]
+    B --> C["Narrative summary subthreads"]
+    C --> D["Discovery CEO replies"]
+    D --> E["Evidence review replies"]
+    E --> F["Asset review replies"]
+    F --> G["Batch audit reply"]
+    G --> H["Separate Trend Final thread"]
+```
 
-Mục đích của nó là:
+## Execution order
 
-- khóa scope review
-- giảm lãng phí thời gian
-- quyết định narrative nào xứng đáng được review sâu
+1. prepare Grok
+2. run raw discovery
+3. parse the raw reports
+4. emit the root X run post when public logging is enabled
+5. emit one raw narrative reply per completed raw lane
+6. freeze `review-scope.md`
+7. emit one narrative summary subthread per approved narrative
+8. emit one Discovery CEO reply inside each approved narrative subthread
+9. review evidence and assets for approved narratives
+10. emit evidence and asset replies when public logging is enabled
+11. write `batch-audit.md`
+12. emit one batch audit reply
+13. write `trend-final.md`
+14. build `trend-package/`
+15. emit one separate top-level Trend Final thread
 
-## 5. Evidence reviewer
+## What runs in parallel
 
-Đánh giá độ thật và độ nóng của narrative.
+- `global` and `ai` lanes can run in parallel
+- approved narratives can be reviewed in parallel
+- approved narrative X subthreads can progress in parallel after scope freeze
 
-## 6. Asset reviewer
+## What is still serialized
 
-Đánh giá asset có bám narrative, fun, độc đáo và usable hay không.
+- the runtime still uses one shared browser context
+- clipboard work is still serialized
+- evidence review still happens before asset review inside the same narrative
 
-## 7. Batch auditor
+## Join gates
 
-Nhìn lại toàn batch và chốt chất lượng cuối.
+Batch audit should not start until:
 
-## 8. Trend Final
+- `review-scope.md` exists
+- approved narratives have completed the available internal reviews
+- public narrative summary, CEO, evidence, and asset replies are either posted
+  or explicitly skipped when public logging is enabled
 
-Nén cả batch thành một file đủ rõ cho Step 2.
+Trend Final should not be published until:
 
-## Đoạn nào chạy song song
+- `batch-audit.md` exists
+- the batch-audit X reply is either posted or explicitly skipped when public
+  logging is enabled
 
-Sau khi scope review được khóa, lane evidence review và asset review có thể
-chạy song song trên các narrative đã được chọn.
+Step 2 should not start until:
 
-Điều này giúp Step 1 nhanh hơn mà không bỏ qua quality gate.
+- `trend-final.md` exists
+- `trend-package/` exists
 
-## Join gate ở đâu
+## Output contract
 
-Evidence review và asset review phải hoàn tất trước khi batch audit được viết.
-
-Batch audit phải hoàn tất trước khi `trend-final.md` được viết.
-
-## Output contract của orchestration
-
-Orchestration chỉ được xem là thành công khi tự sinh được:
+Stage 1 orchestration is complete only when it produces:
 
 - `review-scope.md`
 - `*.evidence-review.md`
@@ -73,36 +119,14 @@ Orchestration chỉ được xem là thành công khi tự sinh được:
 - `batch-audit.md`
 - `trend-final.md`
 - `trend-package/`
-- `x-public-log.json` khi public trust layer được bật
-- `x-public-log.md` khi public trust layer được bật
+- optional `x-public-log.json`
+- optional `x-public-log.md`
 
-## Vì sao Discovery CEO là quan trọng nhất
+## Internal vs public surface
 
-Vấn đề lớn nhất của discovery không phải là thiếu narrative. Vấn đề lớn nhất là
-có quá nhiều narrative trung bình.
+The internal batch is the real data layer for Step 2.
 
-Discovery CEO tồn tại để nói:
+The X flow is the public trust layer. It exists so external followers can see
+what the AI is scanning, rejecting, and promoting in near real time.
 
-- cái nào đáng đào sâu
-- cái nào chỉ nên watch
-- cái nào nên loại ngay
-
-Nó là agent bảo vệ attention của toàn hệ thống.
-
-## Public X broadcast flow
-
-Ngoài internal artifact flow, Stage 1 còn có thể phát sóng công khai lên X.
-
-Thứ tự event chuẩn:
-
-1. root run post
-2. raw narrative reply
-3. narrative parser subthread cho từng approved narrative
-4. Discovery CEO reply
-5. evidence review reply
-6. asset review reply
-7. batch audit reply
-8. Trend Final thread riêng
-
-X là trust layer.
-`trend-package/` mới là handoff package thật cho Step 2.
+Public posting should never replace the internal handoff package.
