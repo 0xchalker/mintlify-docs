@@ -18,14 +18,16 @@ description: "Purpose, inputs, outputs, and runtime logic for the MEME LABS Stag
 
 ```mermaid
 flowchart LR
-    A["Raw trend scan"] --> B["Parse into narrative files"]
-    B --> C["Discovery CEO freezes review scope"]
-    C --> D["Evidence review"]
-    C --> E["Asset review"]
-    D --> F["Batch audit"]
-    E --> F
-    F --> G["Trend Final"]
-    G --> H["Trend Package"]
+    A["Start raw lanes"] --> B["Public root and raw X updates"]
+    A --> C["Parse into narrative files"]
+    B --> D["Discovery CEO freezes review scope"]
+    C --> D
+    D --> E["Evidence review"]
+    D --> F["Asset review"]
+    E --> G["Batch audit"]
+    F --> G
+    G --> H["Trend Final"]
+    H --> I["Trend Package"]
 ```
 
 ## What this step is for
@@ -132,6 +134,9 @@ When public logging is enabled, the public order is:
 8. one separate top-level Trend Final thread
 
 This is a trust surface, not the Step 2 handoff.
+
+The public X layer now runs as an ordered async mirror queue. Internal review
+keeps moving while the trust thread catches up in the background.
 
 ## Empty-state is valid
 

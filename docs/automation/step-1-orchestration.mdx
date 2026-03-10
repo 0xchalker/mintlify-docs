@@ -62,10 +62,10 @@ flowchart TD
 ## Execution order
 
 1. prepare Grok
-2. run raw discovery
-3. parse the raw reports
-4. emit the root X run post when public logging is enabled
-5. emit one raw narrative reply per completed raw lane
+2. start raw discovery lanes
+3. emit the root X run post for each lane when public logging is enabled
+4. emit one raw narrative reply as soon as a raw lane finishes
+5. parse the raw reports
 6. freeze `review-scope.md`
 7. emit one narrative summary subthread per approved narrative
 8. emit one Discovery CEO reply inside each approved narrative subthread
@@ -80,14 +80,19 @@ flowchart TD
 ## What runs in parallel
 
 - `global` and `ai` lanes can run in parallel
+- Stage 1 X run posts and raw replies can now happen while other lanes are
+  still scanning
 - approved narratives can be reviewed in parallel
 - approved narrative X subthreads can progress in parallel after scope freeze
+- public X posting now runs as an ordered async mirror queue, so internal review
+  does not have to stop and wait for every live X action
 
 ## What is still serialized
 
 - the runtime still uses one shared browser context
 - clipboard work is still serialized
 - evidence review still happens before asset review inside the same narrative
+- X post order is still serialized on purpose so reply chains stay clean
 
 ## Join gates
 
