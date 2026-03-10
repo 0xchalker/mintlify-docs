@@ -13,7 +13,7 @@ MEME LABS vận hành như một hệ điều hành cho meme campaign, không ch
 
 | Stage | Mục tiêu | Câu hỏi trung tâm | Artifact khóa |
 | --- | --- | --- | --- |
-| Step 1 | Tạo batch narrative | Trend nào đáng giữ lại? | `.narrative/.../trend-final.md` |
+| Step 1 | Tạo batch narrative | Trend nào đáng giữ lại? | `.narrative/.../trend-final.md` + optional `x-public-log.*` |
 | Step 2 | Khóa concept coin | Đánh story nào và đánh bằng bản sắc nào? | `.concepts/[TICKER]/concept.md` |
 | Step 3 | Dựng content system | Coin này sẽ xuất hiện ra sao trước cộng đồng? | `.campaigns/[TICKER]/content-system/` |
 | Step 4 | Launch thật | Coin đã launch ra sao và reaction đầu tiên là gì? | `.campaigns/[TICKER]/launch/` |
@@ -42,6 +42,11 @@ flowchart LR
 Ở đây hệ thống đi tìm story, bóc tách story, gom evidence, đọc asset, rồi tạo một batch đủ rõ để con người hoặc agent khác có thể chọn winner.
 
 Nếu Step 1 yếu, mọi thứ sau đó chỉ là xây nhà trên nền đất xấu.
+
+Step 1 giờ còn có thêm một lớp public trust:
+
+- nội bộ: `trend-final.md`, `trend-package/`
+- công khai: X thread log cho thấy AI đã nghĩ và quyết định như thế nào
 
 ### Step 2 là stage khóa bản sắc
 

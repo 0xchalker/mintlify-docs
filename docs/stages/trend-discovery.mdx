@@ -12,7 +12,7 @@ description: "Mục đích, input, output và logic vận hành của Step 1."
 | Mục tiêu | Tạo ra một narrative batch đủ tốt để Step 2 chọn winner |
 | Decision owner | AI Discovery CEO |
 | Input chính | Raw trend scan, evidence ban đầu, asset ban đầu |
-| Output khóa | `review-scope.md`, `batch-audit.md`, `trend-final.md`, `trend-package/` |
+| Output khóa | `review-scope.md`, `batch-audit.md`, `trend-final.md`, `trend-package/`, `x-public-log.*` (optional) |
 
 ## Sơ đồ luồng
 
@@ -143,6 +143,30 @@ Một batch hoàn chỉnh của Step 1 phải có:
 - `batch-audit.md`
 - `trend-final.md`
 - `trend-package/`
+- `x-public-log.json` khi public trust layer trên X được bật
+- `x-public-log.md` khi public trust layer trên X được bật
+
+## Internal flow và public flow
+
+Step 1 giờ có hai lớp output:
+
+- lớp nội bộ để Step 2 làm việc:
+  - `review-scope.md`
+  - `batch-audit.md`
+  - `trend-final.md`
+  - `trend-package/`
+- lớp công khai để cộng đồng thấy AI đang làm gì:
+  - root run post
+  - raw narrative reply
+  - narrative parser subthread
+  - CEO reply
+  - evidence reply
+  - asset reply
+  - batch audit reply
+  - Trend Final thread
+
+`trend-package/` là handoff package thật.
+`x-public-log.*` chỉ là trust surface và replay surface.
 
 ## Lưu vào đâu
 

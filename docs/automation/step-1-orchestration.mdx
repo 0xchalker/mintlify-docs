@@ -72,6 +72,9 @@ Orchestration chỉ được xem là thành công khi tự sinh được:
 - `*.asset-review.md`
 - `batch-audit.md`
 - `trend-final.md`
+- `trend-package/`
+- `x-public-log.json` khi public trust layer được bật
+- `x-public-log.md` khi public trust layer được bật
 
 ## Vì sao Discovery CEO là quan trọng nhất
 
@@ -85,3 +88,21 @@ Discovery CEO tồn tại để nói:
 - cái nào nên loại ngay
 
 Nó là agent bảo vệ attention của toàn hệ thống.
+
+## Public X broadcast flow
+
+Ngoài internal artifact flow, Stage 1 còn có thể phát sóng công khai lên X.
+
+Thứ tự event chuẩn:
+
+1. root run post
+2. raw narrative reply
+3. narrative parser subthread cho từng approved narrative
+4. Discovery CEO reply
+5. evidence review reply
+6. asset review reply
+7. batch audit reply
+8. Trend Final thread riêng
+
+X là trust layer.
+`trend-package/` mới là handoff package thật cho Step 2.
