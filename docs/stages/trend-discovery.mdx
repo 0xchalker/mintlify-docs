@@ -12,7 +12,7 @@ description: "Mục đích, input, output và logic vận hành của Step 1."
 | Mục tiêu | Tạo ra một narrative batch đủ tốt để Step 2 chọn winner |
 | Decision owner | AI Discovery CEO |
 | Input chính | Raw trend scan, evidence ban đầu, asset ban đầu |
-| Output khóa | `review-scope.md`, `batch-audit.md`, `trend-final.md` |
+| Output khóa | `review-scope.md`, `batch-audit.md`, `trend-final.md`, `trend-package/` |
 
 ## Sơ đồ luồng
 
@@ -25,6 +25,7 @@ flowchart LR
     D --> F["Batch audit"]
     E --> F
     F --> G["Trend Final"]
+    G --> H["Trend Package"]
 ```
 
 ## Step này tồn tại để làm gì
@@ -124,6 +125,9 @@ Mục tiêu là để Step 2 không phải đọc lại toàn bộ batch từ đ
 - đâu là điểm cần cẩn trọng
 - nếu shortlist đang đồng điểm thì winner được freeze theo rule nào
 
+Sau khi freeze winner, runtime còn phải đóng gói `trend-package/` để Step 2
+đọc ngay bộ tài liệu liên quan đến narrative top và các lane dự phòng.
+
 ## Output của Step 1
 
 Một batch hoàn chỉnh của Step 1 phải có:
@@ -138,6 +142,7 @@ Một batch hoàn chỉnh của Step 1 phải có:
 - `*.asset-review.md`
 - `batch-audit.md`
 - `trend-final.md`
+- `trend-package/`
 
 ## Lưu vào đâu
 
@@ -183,6 +188,7 @@ Step 1 chỉ được xem là xong khi:
 - narrative trọng điểm đã có asset review
 - batch đã có audit
 - batch đã có Trend Final
+- batch đã có Trend Package
 - batch có thể được gọi là `review-ready`
 
 ## Đọc thêm
