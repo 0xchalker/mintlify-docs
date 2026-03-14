@@ -1,72 +1,29 @@
 ---
 title: "Workspace Map"
-description: "Bản đồ folder chính của MEME LABS."
+description: "Where the canonical artifacts, runtime helpers, and Control Room files live."
 ---
 
 # Workspace Map
 
-## Root folders
+## Core folders
 
-### `/.agents/`
+- `.agents/` -> control plane
+- `.narrative/` -> Stage 1 outputs
+- `.concepts/` -> Stage 2 outputs
+- `.campaigns/` -> Stage 3 to Stage 6 outputs
+- `.agents/evals/` -> Stage 7 learning packs
+- `scripts/` -> runtime entrypoints
+- `prompts/` -> prompt sources
+- `src/` -> Control Room app
+- `public/` -> generated mirror state and static assets
+- `references/` -> reference-only material such as Paperclip
 
-Control plane của hệ thống.
+## Generated mirror
 
-### `/.narrative/`
+The app reads `public/control-room-state.json`.
 
-Nơi lưu các narrative batch đã được quét và phân tích.
+Rebuild it with:
 
-### `/.concepts/`
-
-Nơi lưu concept package của mỗi ticker đã được khóa.
-
-### `/.campaigns/`
-
-Nơi lưu kết quả cuối cùng của một campaign.
-
-### `/prompts/`
-
-Prompt sources cho các lane runtime.
-
-### `/scripts/`
-
-Scripts chạy browser automation và các helper chính của hệ thống.
-
-### `/docs/`
-
-Nguồn trang Mintlify để review workflow và output contracts.
-
-### `/output/` (tùy runtime)
-
-Folder ephemeral cho browser profile, file tạm, và debug captures.
-Nó có thể chưa tồn tại nếu hệ thống chưa chạy runtime nào.
-
-## Cách hiểu folder taxonomy
-
-### Folder có dấu chấm ở root
-
-Thường là namespace bền vững của pipeline hoặc control plane.
-
-### Folder không có dấu chấm ở root
-
-Thường là runtime source, docs source, hoặc công cụ phụ trợ.
-
-## Cách đọc repo nếu mới vào
-
-1. Đọc [Giới thiệu](/docs/introduction)
-2. Đọc [Kiến trúc](/docs/architecture)
-3. Đọc [Tổng quan pipeline](/docs/stages/overview)
-4. Sau đó mới nhìn vào `.narrative`, `.concepts`, `.campaigns`
-
-## Folder nào quan trọng nhất để review hằng ngày
-
-### Nếu review discovery
-
-Nhìn vào `.narrative/`
-
-### Nếu review quality của concept
-
-Nhìn vào `.concepts/`
-
-### Nếu review chiến dịch đã launch
-
-Nhìn vào `.campaigns/`
+```powershell
+npm run ops:sync
+```

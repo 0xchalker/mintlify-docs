@@ -14,18 +14,19 @@
         "tab": "MEME LABS",
         "groups": [
           {
-            "group": "Bắt đầu",
+            "group": "Start",
             "pages": [
               "index",
               "docs/introduction",
               "docs/quickstart",
+              "docs/operations/control-room",
               "docs/campaign-walkthrough",
               "docs/architecture",
               "docs/workspace-map"
             ]
           },
           {
-            "group": "Vận hành theo giai đoạn",
+            "group": "Stages",
             "pages": [
               "docs/stages/overview",
               "docs/stages/trend-discovery",
@@ -38,21 +39,22 @@
             ]
           },
           {
+            "group": "Automation",
+            "pages": [
+              "docs/automation/step-1-orchestration",
+              "docs/automation/campaign-lifecycle",
+              "docs/automation/ai-meme-factory",
+              "docs/operations/night-review",
+              "docs/operations/runtime-commands"
+            ]
+          },
+          {
             "group": "Output Contracts",
             "pages": [
               "docs/outputs/narrative-batches",
               "docs/outputs/concept-packages",
               "docs/outputs/campaign-packages",
               "docs/outputs/evaluation-packs"
-            ]
-          },
-          {
-            "group": "Automation và Governance",
-            "pages": [
-              "docs/automation/step-1-orchestration",
-              "docs/automation/ai-meme-factory",
-              "docs/operations/night-review",
-              "docs/operations/runtime-commands"
             ]
           }
         ]

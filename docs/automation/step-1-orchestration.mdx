@@ -1,137 +1,37 @@
 ---
-title: "Step 1 Orchestration"
-description: "How Stage 1 is coordinated across internal review gates and the public X trust layer."
+title: "Stage 1 Orchestration"
+description: "How Trend Discovery is coordinated across internal review and the public trust layer."
 ---
 
-# Step 1 Orchestration
-
-## Why orchestration exists
-
-Stage 1 orchestration exists to turn a raw scan into a reviewable batch with:
-
-- clear owners
-- clear join gates
-- a clean Step 2 handoff
-- a public X trust surface
-
-Without orchestration, Stage 1 becomes a long browser run with no reliable
-decision boundary.
-
-## Core roles
-
-- `session-keeper`
-- `trend-scout`
-- `narrative-normalizer`
-- `discovery-ceo`
-- `evidence-reviewer`
-- `asset-reviewer`
-- `batch-auditor`
-- `finalizer`
-- optional `public narrator`
+# Stage 1 Orchestration
 
 ## Internal flow
 
-```mermaid
-flowchart LR
-    A["Prepare Grok"] --> B["Run raw discovery"]
-    B --> C["Parse raw reports"]
-    C --> D["Freeze review scope"]
-    D --> E["Review evidence"]
-    D --> F["Review assets"]
-    E --> G["Write batch audit"]
-    F --> G
-    G --> H["Write Trend Final"]
-    H --> I["Build trend package"]
-```
-
-## Public X flow
-
-When public logging is enabled, Stage 1 also narrates itself in public on X.
-
-```mermaid
-flowchart TD
-    A["Root run post"] --> B["Raw narrative replies"]
-    B --> C["Narrative summary subthreads"]
-    C --> D["Discovery CEO replies"]
-    D --> E["Evidence review replies"]
-    E --> F["Asset review replies"]
-    F --> G["Batch audit reply"]
-    G --> H["Separate Trend Final thread"]
-```
-
-## Execution order
-
 1. prepare Grok
-2. start raw discovery lanes
-3. emit the root X run post for each lane when public logging is enabled
-4. emit one raw narrative reply as soon as a raw lane finishes
-5. parse the raw reports
-6. freeze `review-scope.md`
-7. emit one narrative summary subthread per approved narrative
-8. emit one Discovery CEO reply inside each approved narrative subthread
-9. review evidence and assets for approved narratives
-10. emit evidence and asset replies when public logging is enabled
-11. write `batch-audit.md`
-12. emit one batch audit reply
-13. write `trend-final.md`
-14. build `trend-package/`
-15. emit one separate top-level Trend Final thread
+2. run raw discovery lanes
+3. parse raw reports
+4. freeze review scope
+5. review evidence and assets
+6. write batch audit
+7. write Trend Final
+8. build trend package
+9. refresh the Control Room mirror
 
-## What runs in parallel
+## Public trust flow
 
-- `global` and `ai` lanes can run in parallel
-- Stage 1 X run posts and raw replies can now happen while other lanes are
-  still scanning
-- approved narratives can be reviewed in parallel
-- approved narrative X subthreads can progress in parallel after scope freeze
-- public X posting now runs as an ordered async mirror queue, so internal review
-  does not have to stop and wait for every live X action
+When public logging is enabled:
 
-## What is still serialized
+1. root run post
+2. raw narrative replies
+3. narrative summary subthreads
+4. CEO replies
+5. evidence replies
+6. asset replies
+7. batch audit reply
+8. separate Trend Final thread
 
-- the runtime still uses one shared browser context
-- clipboard work is still serialized
-- evidence review still happens before asset review inside the same narrative
-- X post order is still serialized on purpose so reply chains stay clean
+## Transport rule
 
-## Join gates
-
-Batch audit should not start until:
-
-- `review-scope.md` exists
-- approved narratives have completed the available internal reviews
-- public narrative summary, CEO, evidence, and asset replies are either posted
-  or explicitly skipped when public logging is enabled
-
-Trend Final should not be published until:
-
-- `batch-audit.md` exists
-- the batch-audit X reply is either posted or explicitly skipped when public
-  logging is enabled
-
-Step 2 should not start until:
-
-- `trend-final.md` exists
-- `trend-package/` exists
-
-## Output contract
-
-Stage 1 orchestration is complete only when it produces:
-
-- `review-scope.md`
-- `*.evidence-review.md`
-- `*.asset-review.md`
-- `batch-audit.md`
-- `trend-final.md`
-- `trend-package/`
-- optional `x-public-log.json`
-- optional `x-public-log.md`
-
-## Internal vs public surface
-
-The internal batch is the real data layer for Step 2.
-
-The X flow is the public trust layer. It exists so external followers can see
-what the AI is scanning, rejecting, and promoting in near real time.
-
-Public posting should never replace the internal handoff package.
+- browser X is the default Stage 1 public transport
+- X API is optional
+- internal artifacts remain canonical

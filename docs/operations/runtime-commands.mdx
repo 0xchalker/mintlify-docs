@@ -1,74 +1,35 @@
 ---
 title: "Runtime Commands"
-description: "Những lệnh runtime quan trọng nhất để vận hành MEME LABS."
+description: "The runtime commands that matter for MEME LABS operators."
 ---
 
 # Runtime Commands
 
-Trang này chỉ liệt kê những lệnh thực sự quan trọng trong runtime hiện tại.
+## Control Room
 
-## Discovery
+```powershell
+npm run ops:sync
+npm run dev
+```
 
-### Chuẩn bị Grok
+## Stage 1
 
 ```powershell
 npm run grok:prepare
-```
-
-### Chạy full trend discovery
-
-```powershell
 npm run trend:run
-```
-
-### Chạy lại riêng phần review orchestration trên một parsed batch đã có
-
-```powershell
 npm run trend:review -- --input <parsed-batch-dir>
 ```
 
-## Media
-
-### Chuẩn bị Freepik
+## X API
 
 ```powershell
-npm run freepik:prepare
+npm run x:api:doctor
+npm run x:api:post -- --text "..."
+npm run x:api:reply -- --text "..." --in-reply-to "<tweet-url-or-id>"
+npm run x:api:thread -- --input "thread.json"
 ```
 
-### Sinh ảnh qua Freepik
+## Rule
 
-```powershell
-npm run freepik:image
-```
-
-### Mở blueprint cho Spaces
-
-```powershell
-npm run freepik:spaces:blueprint
-```
-
-## X lane
-
-### Chuẩn bị X browser session
-
-```powershell
-npm run x:prepare
-```
-
-### Post qua browser
-
-```powershell
-npm run x:post
-```
-
-## Docs
-
-### Chạy Mintlify docs local
-
-```powershell
-npm run docs:dev
-```
-
-## Ghi chú
-
-Các lệnh này là runtime surface. Chúng không thay thế cho workflow decisions ở các stage docs.
+Browser X is still the default Stage 1 public transport because it does not
+consume API credits.

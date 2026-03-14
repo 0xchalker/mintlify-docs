@@ -1,80 +1,45 @@
 ---
 title: "MEME LABS"
-description: "Bộ tài liệu vận hành cho MEME LABS theo chuẩn Mintlify."
+description: "Campaign-first agent operating system for meme launches."
 ---
 
 # MEME LABS
 
-MEME LABS là một hệ thống vận hành theo giai đoạn để:
+MEME LABS is a campaign-first agent operating system.
 
-1. Tìm narrative đang nóng.
-2. Chọn ra đúng một narrative đáng đánh.
-3. Khóa narrative đó thành một concept coin rõ ràng.
-4. Biến concept thành content system cho X và media.
-5. Launch token trên PumpFun.
-6. Lưu lại toàn bộ campaign để học lại và tái sử dụng.
-7. Vận hành public loop và đưa bài học ngược về hệ thống.
+It turns a loose workspace of skills, workflows, scripts, and artifacts into a
+live operating desk:
 
-Tài liệu này không dùng để liệt kê toàn bộ skill nội bộ. Nó dùng để giúp anh review:
+- one Control Room
+- one campaign board
+- one clear owner per stage
+- one durable artifact trail
 
-- hệ thống đang chạy vì mục đích gì
-- từng giai đoạn cần làm gì
-- input nào đi vào từng giai đoạn
-- output nào phải đi ra
-- file nào là file quyết định
-- khi nào được qua bước tiếp theo
+## What makes it different
 
-## Bản đồ nhanh của MEME LABS
+- filesystem artifacts stay canonical
+- the app is a control plane, not a hidden database
+- Stage 1 is still the default opening move
+- launch and risky actions stay human-gated
+
+## Start here
+
+1. [Introduction](/docs/introduction)
+2. [Quickstart](/docs/quickstart)
+3. [Control Room](/docs/operations/control-room)
+4. [Pipeline Overview](/docs/stages/overview)
+
+## The live loop
 
 ```mermaid
 flowchart LR
-    A["Trend Discovery"] --> B["Concept Lab"]
-    B --> C["Content Creator"]
-    C --> D["Launch Ops"]
-    D --> E["Archive"]
-    D --> F["AI MEME FACTORY"]
-    F --> E
-    E --> G["System Learning"]
+    A["Control Room"] --> B["Stage 1"]
+    B --> C["Stage 2"]
+    C --> D["Stage 3"]
+    D --> E["Stage 4"]
+    E --> F["Stage 5"]
+    E --> G["Stage 6"]
+    F --> H["Stage 7"]
+    G --> F
+    H --> A
 ```
-
-## Nên đọc theo thứ tự nào
-
-Nếu muốn hiểu nhanh toàn hệ thống:
-
-1. [Giới thiệu](/docs/introduction)
-2. [Quickstart](/docs/quickstart)
-3. [Tổng quan pipeline](/docs/stages/overview)
-
-Nếu muốn review từng bước:
-
-1. [Step 1: Trend Discovery](/docs/stages/trend-discovery)
-2. [Step 2: Concept Lab](/docs/stages/concept-lab)
-3. [Step 3: Content Creator](/docs/stages/content-creator)
-4. [Step 4: Launch Ops](/docs/stages/launch-ops)
-5. [Step 5: Archive](/docs/stages/archive)
-6. [Step 6: AI MEME FACTORY](/docs/stages/ai-meme-factory)
-7. [Step 7: System Learning](/docs/stages/system-learning)
-
-Nếu muốn review cách hệ thống tự vận hành:
-
-1. [Step 1 Orchestration](/docs/automation/step-1-orchestration)
-2. [AI MEME FACTORY](/docs/automation/ai-meme-factory)
-3. [Night Review](/docs/operations/night-review)
-
-## Bốn phần quan trọng nhất
-
-### 1. Stage docs
-
-Đây là phần trả lời câu hỏi: từng bước tồn tại để làm gì và phải bàn giao cái gì.
-
-### 2. Output contracts
-
-Đây là phần trả lời câu hỏi: mỗi batch, mỗi concept, mỗi campaign được lưu thành những file nào.
-
-### 3. Automation
-
-Đây là phần trả lời câu hỏi: agent nào làm gì, đoạn nào chạy song song, đoạn nào cần gate.
-
-### 4. Governance
-
-Đây là phần trả lời câu hỏi: khi nào nên dừng, khi nào được đi tiếp, và review buổi tối nên nhìn vào đâu.

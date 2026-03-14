@@ -1,87 +1,46 @@
 ---
-title: "Kiến trúc"
-description: "Kiến trúc hiện tại của MEME LABS: control plane, stage outputs và runtime layer."
+title: "Architecture"
+description: "How the MEME LABS control plane, filesystem truth, runtime, and Control Room fit together."
 ---
 
-# Kiến trúc
+# Architecture
 
-## Thesis
+## Four layers
 
-MEME LABS là một operating system theo giai đoạn:
+### 1. Filesystem truth
 
-1. phát hiện narrative mới
-2. chọn đúng một narrative
-3. khóa concept
-4. tạo content và media
-5. launch và quan sát phản ứng thật
-6. archive lại để giữ campaign package
-7. chạy public loop khi cần
-8. học lại để cải tiến hệ thống
+- `.narrative/`
+- `.concepts/`
+- `.campaigns/`
+- `.agents/evals/`
 
-## Ba lớp chính
+These folders are canonical.
 
-## 1. Control plane
+### 2. Control plane
 
-`/.agents/`
+- `.agents/skills/`
+- `.agents/workflows/memelabs/`
 
-Đây là nơi chứa:
+This layer defines stage ownership, contracts, gates, and routing.
 
-- stage routers
-- workflows
-- orchestration specs
-- các capability nội bộ để agent làm việc
+### 3. Runtime
 
-Control plane không phải là nơi lưu campaign output.
+- `scripts/`
+- `prompts/`
+- `output/`
 
-## 2. Durable outputs
+This layer executes scouting, review, posting, sync, and helper tasks.
 
-Đây là ba thư mục quan trọng nhất của pipeline:
+### 4. Control Room mirror
 
-- `/.narrative/`
-- `/.concepts/`
-- `/.campaigns/`
+- `output/control-room/state.json`
+- `public/control-room-state.json`
+- `src/routes/ops*`
 
-Chúng là các stage outputs bền vững, dùng để review, handoff, archive và học lại.
+This layer visualizes the system without replacing the canonical artifacts.
 
-## 3. Runtime layer
+## Why this matters
 
-Bao gồm:
+The Control Room gives new operators and new AIs a real operating surface.
 
-- `/prompts/`
-- `/scripts/`
-- `/output/` khi runtime cần sinh file tạm
-
-Đây là lớp chạy máy, không phải lớp ra quyết định.
-
-`/output/` là folder ephemeral. Nó có thể chưa xuất hiện trong một checkout sạch
-và chỉ được tạo khi browser automation hoặc helper scripts cần state tạm.
-
-## Nguyên tắc kiến trúc
-
-### Stage trước phục vụ stage sau
-
-Step 1 không tồn tại để “scan cho vui”. Nó tồn tại để tạo ra package đủ tốt cho Step 2 chọn winner.
-
-### Mỗi stage phải có artifact
-
-Không có artifact thì không có review, không có audit, và không có handoff.
-
-### Một narrative đi trọn đường
-
-MEME LABS không tối ưu cho việc nhiều narrative cùng chạy trọn pipeline một lúc.
-
-### Launch chỉ là một stage
-
-Launch không phải đích cuối. Đích cuối là campaign package đủ rõ để đánh giá cả hệ thống.
-
-## Source of truth hiện tại
-
-Nếu cần đọc đúng logic vận hành nội bộ, các file gốc hiện tại là:
-
-- `/.agents/workflows/memelabs/master-plan.md`
-- `/.agents/workflows/memelabs/stages/`
-- `/.narrative/README.md`
-- `/.concepts/README.md`
-- `/.campaigns/README.md`
-
-Bộ Mintlify docs này là lớp tài liệu chuẩn hóa để review và vận hành dễ hơn.
+Without it, MEME LABS is easy to treat like a folder maze.

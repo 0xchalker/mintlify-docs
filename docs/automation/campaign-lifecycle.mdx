@@ -1,0 +1,26 @@
+---
+title: "Campaign Lifecycle"
+description: "The automation rules that turn stage docs into a campaign operating system."
+---
+
+# Campaign Lifecycle
+
+## Principles
+
+- one campaign is one operating object
+- stages should auto-advance only when contracts exist
+- reruns must be explicit
+- human gates stay visible
+
+## Gates
+
+- Stage 1 -> Stage 2 only after `trend-final.md` and `trend-package/`
+- Stage 2 -> Stage 3 only after the full concept package
+- Stage 3 -> Stage 4 only after the content-system contract
+- Stage 4 launch confirmation stays human-gated
+- Stage 7 patch promotion stays human-gated
+
+## Mirror rule
+
+Every meaningful runtime should refresh the Control Room mirror after writing
+durable artifacts.
